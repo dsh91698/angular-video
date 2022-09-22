@@ -18,6 +18,7 @@
         "plugin:@angular-eslint/recommended",
         "plugin:@angular-eslint/template/process-inline-templates",
         "plugin:import/recommended", // solve the problem with "1:1  error  Definition for rule 'import/extensions' was not found "
+        // https://stackoverflow.com/questions/68878189/eslint-definition-for-rule-import-extensions-was-not-found
         "airbnb-typescript/base"
       ],
       "rules": {
