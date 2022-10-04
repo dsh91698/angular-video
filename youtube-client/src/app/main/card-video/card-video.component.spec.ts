@@ -8,9 +8,9 @@ describe('CardVideoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CardVideoComponent ]
+      declarations: [ CardVideoComponent ],
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(CardVideoComponent);
     component = fixture.componentInstance;
