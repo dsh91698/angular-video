@@ -1,4 +1,6 @@
-export const mockResponse: any = {
+import  { YouTubeResponse } from  './model/you-tube-response';
+
+export const mockResponse: YouTubeResponse = {
   'kind': 'youtube#videoListResponse',
   'etag': '"Fznwjl6JEQdo1MGvHOGaz_YanRU/Cmodw7c5XPTM8Yg3kMXelihxek4"',
   'pageInfo': {
