@@ -10,7 +10,7 @@ import { SettingsButtonComponent } from './header/settings-button/settings-butto
 import { LoginInformationBlockComponent } from './header/login-information-block/login-information-block.component';
 import { FilteringCriteriaBlockComponent } from './filtering-criteria-block/filtering-criteria-block.component';
 import { SearchResultsBlockComponent } from './search-results-block/search-results-block.component';
-import { SearchResultItemComponent } from './SearchResultsBlock/search-result-item/search-result-item.component';
+import { SearchResultItemComponent } from './search-results-block/search-result-item/search-result-item.component';
 
 @NgModule({
   declarations: [
