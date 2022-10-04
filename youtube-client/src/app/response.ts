@@ -1,4 +1,4 @@
-export const mockRespond: any = {
+export const mockResponse: any = {
   'kind': 'youtube#videoListResponse',
   'etag': '"Fznwjl6JEQdo1MGvHOGaz_YanRU/Cmodw7c5XPTM8Yg3kMXelihxek4"',
   'pageInfo': {
