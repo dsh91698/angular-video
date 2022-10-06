@@ -11,6 +11,7 @@ import { LoginInformationBlockComponent } from './header/login-information-block
 import { FilteringCriteriaBlockComponent } from './filtering-criteria-block/filtering-criteria-block.component';
 import { SearchResultsBlockComponent } from './search-results-block/search-results-block.component';
 import { SearchResultItemComponent } from './search-results-block/search-result-item/search-result-item.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { SearchResultItemComponent } from './search-results-block/search-result-
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
