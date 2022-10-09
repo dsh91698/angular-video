@@ -12,6 +12,7 @@ import { FilteringCriteriaBlockComponent } from './filtering-criteria-block/filt
 import { SearchResultsBlockComponent } from './search-results-block/search-results-block.component';
 import { SearchResultItemComponent } from './search-results-block/search-result-item/search-result-item.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import  {  MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatToolbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
