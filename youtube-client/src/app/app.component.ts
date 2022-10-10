@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-// import { mockResponse } from './response';
+import { Component, Output } from '@angular/core';
+import { mockResponse } from './response';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +9,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'youtube-client';
 
-  response = 'response.ts';
+  response = mockResponse.items;
+
+  constructor() {}
+  // @Output() fr = {};
+
   // console.log(response);
 }

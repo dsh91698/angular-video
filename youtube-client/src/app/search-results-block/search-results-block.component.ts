@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { mockResponse } from '../response';
+// import { response } from '../app.component';
+import { IYouTubeItem } from '../models/IYouTubeItem';
+import { IYouTubeResponse } from '../models/you-tube-response';
 
 @Component({
   selector: 'app-search-results-block',
@@ -7,8 +10,11 @@ import { mockResponse } from '../response';
   styleUrls: ['./search-results-block.component.scss']
 })
 export class SearchResultsBlockComponent implements OnInit {
-  response = mockResponse.items;
-
+  
+  @Input()
+  response9: IYouTubeItem[] = [];
+  // response = mockResponse.items;
+  //  fr = {};
 
   constructor() { }
 
