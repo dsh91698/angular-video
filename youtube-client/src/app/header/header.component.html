@@ -18,14 +18,14 @@
         <!-- The form -->
         <form class="search-form" action="#">
             <input type="text" class="search-input">
-            <button type="submit" class="search-button">Search!</button>
+            <button type="submit" class="search-button" >search</button>
         </form>
-        <button class="settings-button"></button>
+        <button class="settings-button" (click)="showOrHideSearchBySection($event)"> </button>
 
     </div>
     <div class="header-login">Your Name</div>
 </header>
-<div class="sorting-by__wrapper">
+<div class="sorting-by__wrapper" *ngIf="isShown_sorting_by__wrapper">
     <div class="sorting-by__tytle">Sorting by:</div>
     <div class="sorting__by-date"><a href="#" class="by-date__a">date</a></div>
     <div class="sorting__by-count-of-views"><a href="#" class="count-of-views__a">count of views</a></div>
