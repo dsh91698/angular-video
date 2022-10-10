@@ -9,7 +9,10 @@
 </head>
 
 <body>
-  <app-header></app-header>
+  <app-header
+  (searchEvent)="receiveSearchEventFromHeader($event)"
+  ></app-header>
+
   <app-search-results-block
   [response9]="response"
   ></app-search-results-block>

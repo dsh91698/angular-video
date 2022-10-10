@@ -1,4 +1,5 @@
 import { Component, Output } from '@angular/core';
+import { IYouTubeItem } from './models/IYouTubeItem';
 import { mockResponse } from './response';
 
 @Component({
@@ -9,10 +10,12 @@ import { mockResponse } from './response';
 export class AppComponent {
   title = 'youtube-client';
 
-  response = mockResponse.items;
+  // response = mockResponse.items;
+  response = [] as IYouTubeItem[];
+
+  receiveSearchEventFromHeader($event: IYouTubeItem[]) {
+    this.response = $event;
+  }
 
   constructor() {}
-  // @Output() fr = {};
-
-  // console.log(response);
 }

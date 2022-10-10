@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IYouTubeItem } from '../models/IYouTubeItem';
+import { mockResponse } from '../response';
+
 // import  {  MatToolbarModule } from '@angular/material/toolbar';
 // import { response, fr } from '../search-results-block/search-results-block.component'
 
@@ -19,18 +21,23 @@ export class HeaderComponent implements OnInit {
   // @Input() 
   // @Input() response: IYouTubeItem[];
 
+  response = mockResponse.items;
+
+  @Output() searchEvent = new EventEmitter<IYouTubeItem[]>();
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
   showOrHideSearchBySection(event?:any) {
-    console.log('event->',event,this.isShown_sorting_by__wrapper);
+    // console.log('event->', event, this.isShown_sorting_by__wrapper);
     this.isShown_sorting_by__wrapper = !this.isShown_sorting_by__wrapper;
   }
 
-  search(){
-    console.log('search pushed');
+  search() {
+    // console.log('search pushed');
+    this.searchEvent.emit(this.response);
     // response = fr;
   }
 
