@@ -1,5 +1,10 @@
 
 <div class="search-results-block__wrapper">
-    <div class="video-card" *ngFor="let v-card of response">card</div>
-   <p>search-results-block works!</p>
+    <div class="video-card" *ngFor="let vcard of response">
+    <img src="{{vcard.snippet.thumbnails.medium.url}}" alt="thumbnail" class="video-card__img">
+    <div class="video-card__statistics">stata</div>
+    <div class="video-card__title">{{vcard.snippet.title}}</div>
+    <button class="video-card__btn">more...</button>
+    </div>
+   <!-- <p>search-results-block works!</p> -->
 </div>

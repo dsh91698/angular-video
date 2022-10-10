@@ -1,3 +1,16 @@
+@mixin video-card__title {
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 23px;
+text-align: right;
+
+color: #4F4F4F;
+}
+
+
+
 
 .search-results-block__wrapper {
     display: flex;
@@ -10,7 +23,28 @@
 }
 
 .video-card {
-    width: 300px;
-    height: 100px;
-    background-color: grey;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    text-align: center;
+    background-color: #e5e5e5;
+    width: 264px;
+    height: 327px;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.25));
+
+    img {
+    width: 223px;
+    height: 123px;
+    margin-left: auto;
+    margin-right: auto;
+    }
+    .video-card__statistics {
+    }
+    .video-card__title {
+        @include video-card__title();
+    }
+    .video-card__btn {
+    }
+
 }
