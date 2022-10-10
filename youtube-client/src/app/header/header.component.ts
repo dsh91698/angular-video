@@ -75,9 +75,15 @@ export class HeaderComponent implements OnInit {
       return;
     }
 
-    if (sortType == 'date') {
-      console.log('date sorting ->');
-    }
+  }
+
+  onInput(event:any) {
+    let textInput = (event.target as HTMLInputElement).value;
+    console.log('textinput->', textInput);
+    // const rez = this.response.filter(a => a.snippet.tags.includes(textInput));
+    const rez = this.response.filter(a => a.snippet.description.includes(textInput) || a.snippet.tags.includes(textInput));
+    this.sortEvent.emit(rez);
+    return;
   }
 
 }

@@ -32,7 +32,10 @@
     <div class="sorting__by-count-of-views" (click)="sortEventFun('views')">count of views</div>
     <div class="sorting__by-word-or-sentence">
         by word or sentence
-        <input class="by-word-or-sentence__input-text" type="text" name="by-word-or-sentence" id="#by-word-or-sentence">
+        <input class="by-word-or-sentence__input-text" 
+        type="text" name="by-word-or-sentence" 
+        id="#by-word-or-sentence"
+        (input)="onInput($event)">
     </div>
 
 </div>
