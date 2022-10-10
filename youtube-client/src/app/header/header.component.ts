@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
 
   response = mockResponse.items;
 
-  isSortedByDate = false;
+  isSortedByDate = true;
 
   isSortedByViews = false;
 
@@ -54,6 +54,19 @@ export class HeaderComponent implements OnInit {
       this.sortEvent.emit(this.response);
       return;
     }
+
+    if (sortType == 'date' && this.isSortedByDate) {
+      this.response.sort((a, b) => (new Date(a.snippet.publishedAt).getTime()) - (new Date(b.snippet.publishedAt).getTime())); // desc sort
+      this.isSortedByDate = false;
+      this.sortEvent.emit(this.response);
+      return;
+    }
+    if (sortType == 'date' && !this.isSortedByDate) {
+      this.response.sort((a, b) => (new Date(b.snippet.publishedAt).getTime()) - (new Date(a.snippet.publishedAt).getTime())); // desc sort
+      this.isSortedByDate = true;
+      this.sortEvent.emit(this.response);
+      return;
+    }
   
     if (sortType == 'views' && !this.isSortedByViews) {
       this.response.sort((a, b) => Number(b.statistics.viewCount) - Number(a.statistics.viewCount));//asc sort
@@ -61,6 +74,7 @@ export class HeaderComponent implements OnInit {
       this.sortEvent.emit(this.response);
       return;
     }
+
     if (sortType == 'date') {
       console.log('date sorting ->');
     }
