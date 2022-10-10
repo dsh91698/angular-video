@@ -5,6 +5,7 @@ button{
     }
 }
 
+//  HEADER section start ----------------------------------------------------------------------
 .header-search__wrapper {
     display: flex;
     justify-content: center;
@@ -74,5 +75,63 @@ button{
     background-repeat: no-repeat;
     background-position: center;
     background-position: 25% 45%;
+}
+//  HEADER section finish ----------------------------------------------------------------------
+
+
+//  SORTING-BY section start ----------------------------------------------------------------------
+.sorting-by__wrapper {
+    display: flex;
+    height: 45px;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    background-color: #E5E5E5;
+}
+
+@mixin search-by-text__a{
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 14px;
+/* identical to box height */
+text-decoration-line: underline;
+color: #2F80ED;
 
 }
+
+.sorting-by__tytle {
+@include search-by-text__a();
+color: #929292;
+}
+
+.sorting__by-date {
+    @include search-by-text__a();
+    margin-left: 15px;
+
+}
+.by-date__a {
+    @include search-by-text__a();
+}
+.sorting__by-count-of-views {
+    @include search-by-text__a();
+    margin-left: 15px;
+
+}
+.count-of-views__a {
+    @include search-by-text__a();
+}
+.sorting__by-word-or-sentence {
+    @include search-by-text__a();
+text-decoration: none;
+margin-left: 15px;
+}
+
+.by-word-or-sentence__input-text {
+    background-color: #ffff;
+    height: 13px;
+    width: 149px;
+    border: 0px solid #EFEFEF; 
+}
+//  sorting-by section finish ----------------------------------------------------------------------
