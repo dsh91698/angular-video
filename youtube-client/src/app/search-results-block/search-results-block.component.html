@@ -1,10 +1,30 @@
-
 <div class="search-results-block__wrapper">
     <div class="video-card" *ngFor="let vcard of response">
-    <img src="{{vcard.snippet.thumbnails.medium.url}}" alt="thumbnail" class="video-card__img">
-    <div class="video-card__statistics">stata</div>
-    <div class="video-card__title">{{vcard.snippet.title}}</div>
-    <button class="video-card__btn">more...</button>
+        <img src="{{vcard.snippet.thumbnails.medium.url}}" alt="thumbnail" class="video-card__img">
+
+        <div class="video-card__statistics">
+
+            <div class="stat-item">
+                <img src="../../assets/icons/viewed.svg" alt="views" class="stat-item__img">
+                <div class="stat-item__counter">{{vcard.statistics.viewCount}}</div>
+            </div>
+            <div class="stat-item">
+                <img src="../../assets/icons/liked.svg" alt="likes" class="stat-item__img">
+                <div class="stat-item__counter">{{vcard.statistics.likeCount}}</div>
+            </div>
+            <div class="stat-item">
+                <img src="../../assets/icons/dislike.svg" alt="dislikes" class="stat-item__img">
+                <div class="stat-item__counter">{{vcard.statistics.dislikeCount}}</div>
+            </div>
+            <div class="stat-item">
+                <img src="../../assets/icons/comments.svg" alt="comments" class="stat-item__img">
+                <div class="stat-item__counter">{{vcard.statistics.commentCount}}</div>
+            </div>
+        </div>
+
+        <div class="video-card__title">{{vcard.snippet.title}}</div>
+        <button class="video-card__btn">more...</button>
+        <div class="video-card__color-mark"></div>
     </div>
-   <!-- <p>search-results-block works!</p> -->
+    <!-- <p>search-results-block works!</p> -->
 </div>
