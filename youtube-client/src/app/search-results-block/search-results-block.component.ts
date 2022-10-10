@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { mockResponse } from '../response';
 
 @Component({
   selector: 'app-search-results-block',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search-results-block.component.scss']
 })
 export class SearchResultsBlockComponent implements OnInit {
+  response = mockResponse.items;
+
 
   constructor() { }
 

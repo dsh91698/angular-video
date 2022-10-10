@@ -18,6 +18,7 @@ export interface IVideoSnippet {
   categoryId: string, //'27',
   liveBroadcastContent: string, //'none',
   localized: IVideoLocalized,
-  defaultAudioLanguage: string, //'en-US',
+  defaultAudioLanguage?: string, //'en-US',
+  defaultLanguage?: string,
 }
   
