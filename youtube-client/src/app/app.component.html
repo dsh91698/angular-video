@@ -11,6 +11,7 @@
 <body>
   <app-header
   (searchEvent)="receiveSearchEventFromHeader($event)"
+  (sortEvent)="receiveSearchEventFromHeader($event)"
   ></app-header>
 
   <app-search-results-block

@@ -23,7 +23,13 @@ export class HeaderComponent implements OnInit {
 
   response = mockResponse.items;
 
+  isSortedByDate = false;
+
+  isSortedByViews = false;
+
   @Output() searchEvent = new EventEmitter<IYouTubeItem[]>();
+
+  @Output() sortEvent = new EventEmitter<IYouTubeItem[]>();
 
   constructor() { }
 
@@ -39,6 +45,25 @@ export class HeaderComponent implements OnInit {
     // console.log('search pushed');
     this.searchEvent.emit(this.response);
     // response = fr;
+  }
+
+  sortEventFun(sortType:string) {
+    if (sortType == 'views' && this.isSortedByViews) {
+      this.response.sort((a, b) => Number(a.statistics.viewCount) - Number(b.statistics.viewCount)); // desc sort
+      this.isSortedByViews = false;
+      this.sortEvent.emit(this.response);
+      return;
+    }
+  
+    if (sortType == 'views' && !this.isSortedByViews) {
+      this.response.sort((a, b) => Number(b.statistics.viewCount) - Number(a.statistics.viewCount));//asc sort
+      this.isSortedByViews = true;
+      this.sortEvent.emit(this.response);
+      return;
+    }
+    if (sortType == 'date') {
+      console.log('date sorting ->');
+    }
   }
 
 }
