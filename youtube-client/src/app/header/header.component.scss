@@ -5,6 +5,30 @@ button{
     }
 }
 
+.header-search__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+}
+
+.header-login {
+    background-image: url(../../assets/img/login.svg);
+    background-repeat: no-repeat;
+    background-position:  right 25%;
+    // background-position: center center;
+    // background-position: 25% 45%;
+    width: 105px;
+    height: 25px;
+    // margin-left: 10%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 10px;
+
+}
+
 .header {
     display: flex;
     justify-content: center;
@@ -45,6 +69,7 @@ button{
     color: #ffff;
     height: 24px;
     width: 24px;
+    min-width: 24px;
     background-image: url(../../assets/img/search_settings.svg);
     background-repeat: no-repeat;
     background-position: center;
