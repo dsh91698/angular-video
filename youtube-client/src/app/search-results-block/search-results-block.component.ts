@@ -12,7 +12,7 @@ import { IYouTubeResponse } from '../models/you-tube-response';
 export class SearchResultsBlockComponent implements OnInit {
   
   @Input()
-  response9: IYouTubeItem[] = [];
+  response: IYouTubeItem[] = [];
   // response = mockResponse.items;
   //  fr = {};
 
