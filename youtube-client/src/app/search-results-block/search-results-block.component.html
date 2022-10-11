@@ -1,4 +1,9 @@
-<div class="search-results-block__wrapper" >
+<app-search-result-item 
+*ngFor="let vcard of response"
+[vcard]="vcard"
+></app-search-result-item>
+
+<!-- <div class="search-results-block__wrapper" >
     <div class="video-card" *ngFor="let vcard of response" >
         <img src="{{vcard.snippet.thumbnails.medium.url}}" alt="thumbnail" class="video-card__img">
 
@@ -26,5 +31,4 @@
         <button class="video-card__btn">more...</button>
         <div class="video-card__color-mark"></div>
     </div>
-    <!-- <p>search-results-block works!</p> -->
-</div>
+</div> -->

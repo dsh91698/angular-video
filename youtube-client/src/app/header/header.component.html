@@ -1,35 +1,18 @@
-<!-- <mat-toolbar>  -->
-<!-- <mat-toolbar-row>  -->
-
-<!-- </mat-toolbar-row> -->
-<!-- <mat-icon></mat-icon> -->
-<!-- <app-logo> </app-logo> -->
-
-
-<!-- <app-search-input-with-submit-button></app-search-input-with-submit-button> -->
-<!-- <app-settings-button></app-settings-button> -->
-<!-- <app-login-information-block></app-login-information-block> -->
-
-<!-- </mat-toolbar> -->
 <header class="header">
     <div class="header-search__wrapper">
         <div class="logo"></div>
-        <!-- <div class="logo"><img src="../../../src/assets/img/logo.jpg" alt="logotype" class="logotype"></div> -->
-        <!-- The form -->
-        <!-- <form class="search-form" action="#"> -->
             <input type="text" class="search-input">
             <button class="search-button" (click)="search()">search</button>
-        <!-- </form> -->
-        <button class="settings-button" (click)="showOrHideSearchBySection($event)"> </button>
+        <button class="settings-button" (click)="toggleSearchSection()"> </button>
 
     </div>
     <div class="header-login">Your Name</div>
 </header>
 
-<div class="sorting-by__wrapper" *ngIf="isShown_sorting_by__wrapper">
+<div class="sorting-by__wrapper" *ngIf="isSortingSectionShown">
     <div class="sorting-by__tytle">Sorting by:</div>
-    <div class="sorting__by-date" (click)="sortEventFun('date')">date</div>
-    <div class="sorting__by-count-of-views" (click)="sortEventFun('views')">count of views</div>
+    <div class="sorting__by-date" (click)="onSortingClick('date')">date</div>
+    <div class="sorting__by-count-of-views" (click)="onSortingClick('views')">count of views</div>
     <div class="sorting__by-word-or-sentence">
         by word or sentence
         <input class="by-word-or-sentence__input-text" 

@@ -1,0 +1,108 @@
+@mixin video-card__title {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: right;
+
+    color: #4F4F4F;
+}
+
+@mixin video-card__btn-text {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+
+    color: #FFFFFF;
+    background-color: #2F80ED;
+}
+
+
+.search-results-block__wrapper {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+
+    background-color: #ffff;
+    width: 100%;
+    height: 100vh;
+}
+
+// VIDEO-CARD - start -----------------------------------------------------------------------------
+.video-card {
+    padding: 15px 15px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    background-color: #e5e5e5;
+    border-radius: 6px;
+    width: 264px;
+    height: 327px;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.25));
+
+    img {
+        width: 223px;
+        height: 123px;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 6px;
+    }
+
+    .video-card__statistics {
+        display: flex;
+        justify-content: space-between;
+
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 12px;
+        /* identical to box height */
+        color: #000000;
+
+        img {
+            height: 15px;
+        }
+
+        .stat-item {
+            max-width: 55px;
+            height: 15px;
+            display: flex;
+            justify-content: center;
+        }
+        .stat-item__img {}
+        .stat-item__counter {}
+    }
+
+    .video-card__title {
+        @include video-card__title();
+    }
+
+    .video-card__btn {
+        width: 120px;
+        height: 32px;
+        border-radius: 4px;
+        border: 0px;
+        filter: drop-shadow(2px 0px 4px #2F80ED);
+        @include video-card__btn-text();
+
+        &:hover {
+            cursor: pointer;
+            filter: drop-shadow(2px 0px 6px #2F80ED);
+        }
+    }
+    .video-card__color-mark {
+        background-color: #2F80ED;
+        width: 100%;
+        height: 10px;
+    }
+}
+// VIDEO-CARD - finish -----------------------------------------------------------------------------

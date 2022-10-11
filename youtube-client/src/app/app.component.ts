@@ -1,6 +1,5 @@
 import { Component, Output } from '@angular/core';
 import { IYouTubeItem } from './models/IYouTubeItem';
-import { mockResponse } from './response';
 
 @Component({
   selector: 'app-root',
@@ -8,12 +7,10 @@ import { mockResponse } from './response';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'youtube-client';
+  
+  public response:IYouTubeItem[] = [];
 
-  // response = mockResponse.items;
-  response = [] as IYouTubeItem[];
-
-  receiveSearchEventFromHeader($event: IYouTubeItem[]) {
+  public getSearchEventFromHeader($event: IYouTubeItem[]) {
     this.response = $event;
   }
 

@@ -1,31 +1,21 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IYouTubeItem } from '../models/IYouTubeItem';
 import { mockResponse } from '../response';
-
-// import  {  MatToolbarModule } from '@angular/material/toolbar';
-// import { response, fr } from '../search-results-block/search-results-block.component'
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent  {
 
-  isShown_sorting_by__wrapper = false;
+  public isSortingSectionShown:boolean = false;
 
+  public response: IYouTubeItem[] = mockResponse.items;
 
-  // @Input() title1: string;
-  // [title1]=title;
+  private isSortedByDate: boolean = true;
 
-  // @Input() 
-  // @Input() response: IYouTubeItem[];
-
-  response = mockResponse.items;
-
-  isSortedByDate = true;
-
-  isSortedByViews = false;
+  private isSortedByViews: boolean = false;
 
   @Output() searchEvent = new EventEmitter<IYouTubeItem[]>();
 
@@ -33,42 +23,36 @@ export class HeaderComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  public toggleSearchSection() {
+    this.isSortingSectionShown = !this.isSortingSectionShown;
   }
 
-  showOrHideSearchBySection(event?:any) {
-    // console.log('event->', event, this.isShown_sorting_by__wrapper);
-    this.isShown_sorting_by__wrapper = !this.isShown_sorting_by__wrapper;
-  }
-
-  search() {
-    // console.log('search pushed');
+  public search() {
     this.searchEvent.emit(this.response);
-    // response = fr;
   }
 
-  sortEventFun(sortType:string) {
-    if (sortType == 'views' && this.isSortedByViews) {
+  public onSortingClick(sortType:string) {
+    if (sortType === 'views' && this.isSortedByViews) {
       this.response.sort((a, b) => Number(a.statistics.viewCount) - Number(b.statistics.viewCount)); // desc sort
       this.isSortedByViews = false;
       this.sortEvent.emit(this.response);
       return;
     }
 
-    if (sortType == 'date' && this.isSortedByDate) {
+    if (sortType === 'date' && this.isSortedByDate) {
       this.response.sort((a, b) => (new Date(a.snippet.publishedAt).getTime()) - (new Date(b.snippet.publishedAt).getTime())); // desc sort
       this.isSortedByDate = false;
       this.sortEvent.emit(this.response);
       return;
     }
-    if (sortType == 'date' && !this.isSortedByDate) {
+    if (sortType === 'date' && !this.isSortedByDate) {
       this.response.sort((a, b) => (new Date(b.snippet.publishedAt).getTime()) - (new Date(a.snippet.publishedAt).getTime())); // desc sort
       this.isSortedByDate = true;
       this.sortEvent.emit(this.response);
       return;
     }
   
-    if (sortType == 'views' && !this.isSortedByViews) {
+    if (sortType === 'views' && !this.isSortedByViews) {
       this.response.sort((a, b) => Number(b.statistics.viewCount) - Number(a.statistics.viewCount));//asc sort
       this.isSortedByViews = true;
       this.sortEvent.emit(this.response);
@@ -77,10 +61,9 @@ export class HeaderComponent implements OnInit {
 
   }
 
-  onInput(event:any) {
+  public onInput(event: Event) {
     let textInput = (event.target as HTMLInputElement).value;
     console.log('textinput->', textInput);
-    // const rez = this.response.filter(a => a.snippet.tags.includes(textInput));
     const rez = this.response.filter(a => a.snippet.description.includes(textInput) || a.snippet.tags.includes(textInput));
     this.sortEvent.emit(rez);
     return;
