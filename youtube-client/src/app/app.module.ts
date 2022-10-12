@@ -10,6 +10,7 @@ import { SearchResultsBlockComponent } from './search-results-block/search-resul
 import { SearchResultItemComponent } from './search-results-block/search-result-item/search-result-item.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import  {  MatToolbarModule } from '@angular/material/toolbar';
+import { SortPipePipe } from './pipes/sort-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import  {  MatToolbarModule } from '@angular/material/toolbar';
     FilteringCriteriaBlockComponent,
     SearchResultsBlockComponent,
     SearchResultItemComponent,
+    SortPipePipe,
   ],
   imports: [
     BrowserModule,
