@@ -8,9 +8,14 @@ import { IYouTubeItem } from '../models/IYouTubeItem';
 })
 export class SearchResultsBlockComponent  {
   
-  @Input() public response:IYouTubeItem[] = [];
+  @Input() 
+  public response:IYouTubeItem[] = [];
 
-  @Input() public strForFiltering:string = '';
+  @Input() 
+  public strForFiltering:string = '';
+
+  @Input()
+  public sortType: 'dateAsc' | 'viewsAsc' | 'dateDes' | 'viewsDes' = 'dateAsc';
 
   constructor() { }
 

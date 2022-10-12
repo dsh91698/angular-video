@@ -1,4 +1,4 @@
 <app-search-result-item 
-*ngFor="let vcard of response | sortPipe:strForFiltering"
+*ngFor="let vcard of response | sortPipe:strForFiltering:sortType"
 [vcard]="vcard"
 ></app-search-result-item>

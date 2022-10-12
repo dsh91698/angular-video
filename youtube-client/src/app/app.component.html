@@ -2,11 +2,14 @@
   (searchEvent)="getSearchEventFromHeader($event)"
   (sortEvent)="getSearchEventFromHeader($event)"
   (filterEvent)="getStrForFiltering($event)"
+  (filterDateViewsEvent)="getfilterDateViewsEvent($event)"
+
   ></app-header>
 
   <app-search-results-block
   [response]="response"
   [strForFiltering]="strForFiltering"
+  [sortType]="sortType"
 
   ></app-search-results-block>
 

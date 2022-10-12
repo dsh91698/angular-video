@@ -12,6 +12,8 @@ export class AppComponent {
 
   public strForFiltering:string = '';
 
+  public sortType: 'dateAsc' | 'viewsAsc' | 'dateDes' | 'viewsDes' = 'dateAsc';
+
   public getSearchEventFromHeader($event: IYouTubeItem[]) {
     this.response = $event;
   }
@@ -19,6 +21,12 @@ export class AppComponent {
   public getStrForFiltering($event: any) {
     this.strForFiltering = $event;
   }
+
+  public getfilterDateViewsEvent($event: any) {
+    this.sortType = $event;
+  }
+
+
 
 
 

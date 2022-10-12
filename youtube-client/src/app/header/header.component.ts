@@ -23,6 +23,8 @@ export class HeaderComponent  {
 
   @Output() filterEvent = new EventEmitter<string>();
 
+  @Output() filterDateViewsEvent = new EventEmitter<'dateAsc' | 'viewsAsc' | 'dateDes' | 'viewsDes'>();
+
   constructor() { }
 
   public toggleSearchSection() {
@@ -35,29 +37,34 @@ export class HeaderComponent  {
 
   public onSortingClick(sortType:string) {
     if (sortType === 'views' && this.isSortedByViews) {
-      this.response.sort((a, b) => Number(a.statistics.viewCount) - Number(b.statistics.viewCount)); // desc sort
+      // this.response.sort((a, b) => Number(a.statistics.viewCount) - Number(b.statistics.viewCount)); // desc sort
       this.isSortedByViews = false;
-      this.sortEvent.emit(this.response);
+      // this.sortEvent.emit(this.response);
+      this.filterDateViewsEvent.emit('viewsDes');
       return;
     }
 
     if (sortType === 'date' && this.isSortedByDate) {
-      this.response.sort((a, b) => (new Date(a.snippet.publishedAt).getTime()) - (new Date(b.snippet.publishedAt).getTime())); // desc sort
+      // this.response.sort((a, b) => (new Date(a.snippet.publishedAt).getTime()) - (new Date(b.snippet.publishedAt).getTime())); // desc sort
       this.isSortedByDate = false;
-      this.sortEvent.emit(this.response);
+      // this.sortEvent.emit(this.response);
+      this.filterDateViewsEvent.emit('dateDes');
       return;
     }
     if (sortType === 'date' && !this.isSortedByDate) {
-      this.response.sort((a, b) => (new Date(b.snippet.publishedAt).getTime()) - (new Date(a.snippet.publishedAt).getTime())); // desc sort
+      // this.response.sort((a, b) => (new Date(b.snippet.publishedAt).getTime()) - (new Date(a.snippet.publishedAt).getTime())); // desc sort
       this.isSortedByDate = true;
-      this.sortEvent.emit(this.response);
+      // this.sortEvent.emit(this.response);
+      this.filterDateViewsEvent.emit('dateAsc');
+
       return;
     }
   
     if (sortType === 'views' && !this.isSortedByViews) {
-      this.response.sort((a, b) => Number(b.statistics.viewCount) - Number(a.statistics.viewCount));//asc sort
+      // this.response.sort((a, b) => Number(b.statistics.viewCount) - Number(a.statistics.viewCount));//asc sort
       this.isSortedByViews = true;
-      this.sortEvent.emit(this.response);
+      this.filterDateViewsEvent.emit('viewsAsc');
+      // this.sortEvent.emit(this.response);
       return;
     }
 
