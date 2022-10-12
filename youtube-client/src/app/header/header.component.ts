@@ -21,6 +21,8 @@ export class HeaderComponent  {
 
   @Output() sortEvent = new EventEmitter<IYouTubeItem[]>();
 
+  @Output() filterEvent = new EventEmitter<string>();
+
   constructor() { }
 
   public toggleSearchSection() {
@@ -63,9 +65,10 @@ export class HeaderComponent  {
 
   public onInput(event: Event) {
     let textInput = (event.target as HTMLInputElement).value;
-    console.log('textinput->', textInput);
-    const rez = this.response.filter(a => a.snippet.description.includes(textInput) || a.snippet.tags.includes(textInput));
-    this.sortEvent.emit(rez);
+    // console.log('textinput->', textInput);
+    // const rez = this.response.filter(a => a.snippet.description.includes(textInput) || a.snippet.tags.includes(textInput));
+    // this.sortEvent.emit(rez);
+    this.filterEvent.emit(textInput);
     return;
   }
 

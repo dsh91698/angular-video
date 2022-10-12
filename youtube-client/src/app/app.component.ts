@@ -10,9 +10,17 @@ export class AppComponent {
   
   public response:IYouTubeItem[] = [];
 
+  public strForFiltering:string = '';
+
   public getSearchEventFromHeader($event: IYouTubeItem[]) {
     this.response = $event;
   }
+
+  public getStrForFiltering($event: any) {
+    this.strForFiltering = $event;
+  }
+
+
 
   constructor() {}
 }

@@ -1,10 +1,13 @@
   <app-header
   (searchEvent)="getSearchEventFromHeader($event)"
   (sortEvent)="getSearchEventFromHeader($event)"
+  (filterEvent)="getStrForFiltering($event)"
   ></app-header>
 
   <app-search-results-block
   [response]="response"
+  [strForFiltering]="strForFiltering"
+
   ></app-search-results-block>
 
   

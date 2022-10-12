@@ -10,6 +10,8 @@ export class SearchResultsBlockComponent  {
   
   @Input() public response:IYouTubeItem[] = [];
 
+  @Input() public strForFiltering:string = '';
+
   constructor() { }
 
 }
