@@ -6,7 +6,10 @@ import { IYouTubeItem } from '../models/IYouTubeItem';
 })
 export class SortPipePipe implements PipeTransform {
 
-  transform(arr:IYouTubeItem[], textInput: string, sortType:'dateAsc' | 'viewsAsc' | 'dateDes' | 'viewsDes' ): IYouTubeItem[] {
+  transform(
+    arr:IYouTubeItem[], 
+    textInput: string, 
+    sortType:'dateAsc' | 'viewsAsc' | 'dateDes' | 'viewsDes' ): IYouTubeItem[] {
     let rez = arr;
     
     if (sortType === 'dateDes') {
@@ -28,7 +31,7 @@ export class SortPipePipe implements PipeTransform {
       a.snippet.description.toLowerCase().includes(textInput.toLowerCase()) 
       || a.snippet.tags.includes(textInput.toLowerCase()));
 
-    return rez; // final
+    return  rez; // final
 
   }
 
