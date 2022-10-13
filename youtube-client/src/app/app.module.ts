@@ -11,6 +11,7 @@ import { SearchResultItemComponent } from './search-results-block/search-result-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import  {  MatToolbarModule } from '@angular/material/toolbar';
 import { SortPipePipe } from './pipes/sort-pipe.pipe';
+import { TimeStyleDirective } from './directives/time-style.directive';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { SortPipePipe } from './pipes/sort-pipe.pipe';
     SearchResultsBlockComponent,
     SearchResultItemComponent,
     SortPipePipe,
+    TimeStyleDirective,
   ],
   imports: [
     BrowserModule,
