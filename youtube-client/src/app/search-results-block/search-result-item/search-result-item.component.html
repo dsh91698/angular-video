@@ -24,6 +24,6 @@
         <div class="video-card__title">{{vcard.snippet.title}}</div>
         <button class="video-card__btn">more...</button>
         <!-- <div class="video-card__color-mark" [appTimeStyle]="'red'"></div> -->
-        <div class="video-card__color-mark" appTimeStyle={{vcard.snippet.publishedAt}}></div>
-        <!-- <div class="video-card__color-mark" [appTimeStyle]=vcard.snippet.publishedAt></div> -->
+        <!-- <div class="video-card__color-mark" appTimeStyle={{vcard.snippet.publishedAt}}></div> -->
+        <div class="video-card__color-mark" appTimeStyle [publishedAt]="vcard.snippet.publishedAt"></div>
     </div>
