@@ -31,22 +31,17 @@ export class TimeStyleDirective {
     let diff: number = this.nowDate - this.postDate;
 
     if (this.dateOffset7d > diff) {
-      console.log('7d', this.dateOffset7d, diff);
-      this.r.setStyle(this.el.nativeElement, 'background-color', 'blue');
+      this.r.setStyle(this.el.nativeElement, 'border-bottom', '8px solid blue');
       return;
     }
     if (this.dateOffset7d < diff && this.dateOffset30d > diff) {
-      console.log('30d', this.dateOffset7d, diff);
-      this.r.setStyle(this.el.nativeElement, 'background-color', 'green');
+      this.r.setStyle(this.el.nativeElement, 'border-bottom', '8px solid green');
       return;
     }
     if (this.dateOffset30d < diff && this.dateOffset6M > diff) {
-      console.log('6Md', this.dateOffset7d, diff);
-      this.r.setStyle(this.el.nativeElement, 'background-color', 'yellow');
+      this.r.setStyle(this.el.nativeElement, 'border-bottom', '8px solid yellow');
       return;
     }
-    
-    this.r.setStyle(this.el.nativeElement, 'background-color', this.color);
   }
 
 }

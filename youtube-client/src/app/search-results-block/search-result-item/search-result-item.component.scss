@@ -36,7 +36,7 @@
 
 // VIDEO-CARD - start -----------------------------------------------------------------------------
 .video-card {
-    padding: 15px 15px 0;
+    padding: 12px ;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -47,6 +47,8 @@
     width: 264px;
     height: 327px;
     filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.25));
+
+    border-bottom: 8px solid red;
 
     img {
         width: 223px;
