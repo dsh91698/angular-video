@@ -12,7 +12,7 @@ export class SearchResultsBlockComponent  {
   public response:IYouTubeItem[] = [];
 
   @Input() 
-  public strForFiltering:string = '';
+  public filterValue = '';
 
   @Input()
   public sortType: 'dateAsc' | 'viewsAsc' | 'dateDes' | 'viewsDes' = 'dateAsc';

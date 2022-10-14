@@ -10,7 +10,7 @@ export class AppComponent {
   
   public response:IYouTubeItem[] = [];
 
-  public strForFiltering = '';
+  public filterValue = '';
 
   public sortType: 'dateAsc' | 'viewsAsc' | 'dateDes' | 'viewsDes' = 'dateAsc';
 
@@ -18,14 +18,13 @@ export class AppComponent {
     this.response = response;
   }
 
-  public getFilterValue(strForFiltering: string):void {
-    this.strForFiltering = strForFiltering;
+  public getFilterValue(filterValue: string):void {
+    this.filterValue = filterValue;
   }
 
   public getfilterDateViewsEvent(sortType: 'dateAsc' | 'viewsAsc' | 'dateDes' | 'viewsDes'): void {
     this.sortType = sortType;
   }
-
 
   constructor() {}
 }
