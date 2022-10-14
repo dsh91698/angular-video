@@ -10,24 +10,21 @@ export class AppComponent {
   
   public response:IYouTubeItem[] = [];
 
-  public strForFiltering:string = '';
+  public strForFiltering = '';
 
   public sortType: 'dateAsc' | 'viewsAsc' | 'dateDes' | 'viewsDes' = 'dateAsc';
 
-  public getSearchEventFromHeader($event: IYouTubeItem[]) {
-    this.response = $event;
+  public getSearchEventFromHeader(response: IYouTubeItem[]): void {
+    this.response = response;
   }
 
-  public getStrForFiltering($event: any) {
-    this.strForFiltering = $event;
+  public getFilterValue(strForFiltering: string):void {
+    this.strForFiltering = strForFiltering;
   }
 
-  public getfilterDateViewsEvent($event: any) {
-    this.sortType = $event;
+  public getfilterDateViewsEvent(sortType: 'dateAsc' | 'viewsAsc' | 'dateDes' | 'viewsDes'): void {
+    this.sortType = sortType;
   }
-
-
-
 
 
   constructor() {}

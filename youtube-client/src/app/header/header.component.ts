@@ -9,13 +9,13 @@ import { mockResponse } from '../response';
 })
 export class HeaderComponent  {
 
-  public isSortingSectionShown:boolean = false;
+  public isSortingSectionShown = false;
 
   public response: IYouTubeItem[] = mockResponse.items;
 
-  private isSortedByDate: boolean = true;
+  private isSortedByDate = true;
 
-  private isSortedByViews: boolean = false;
+  private isSortedByViews = false;
 
   @Output() searchEvent = new EventEmitter<IYouTubeItem[]>();
 

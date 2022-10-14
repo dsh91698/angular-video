@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import  {  MatToolbarModule } from '@angular/material/toolbar';
 import { SortPipePipe } from './pipes/sort-pipe.pipe';
 import { TimeStyleDirective } from './directives/time-style.directive';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { TimeStyleDirective } from './directives/time-style.directive';
     SearchResultItemComponent,
     SortPipePipe,
     TimeStyleDirective,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
