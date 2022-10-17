@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IYouTubeItem } from '../models/IYouTubeItem';
 import { mockResponse } from '../response';
+import { Router } from '@angular/router';
+import { SharedModule } from '../shared/shared.module';
 
 @Component({
   selector: 'app-header',
@@ -25,13 +27,14 @@ export class HeaderComponent  {
 
   @Output() filterDateViewsEvent = new EventEmitter<'dateAsc' | 'viewsAsc' | 'dateDes' | 'viewsDes'>();
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   public toggleSearchSection() {
     this.isSortingSectionShown = !this.isSortingSectionShown;
   }
 
   public search() {
+    this.router.navigateByUrl('/');
     this.searchEvent.emit(this.response);
   }
 
