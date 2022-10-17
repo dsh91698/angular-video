@@ -19,6 +19,7 @@ import { SortPipePipe } from './pipes/sort-pipe.pipe';
     SharedRoutingModule,
   ],
   exports: [
+    CommonModule,
     TimeStyleDirective,
     FilterPipe,
     SortPipePipe,
