@@ -10,9 +10,9 @@ import { SearchResultsBlockComponent } from './search-results-block/search-resul
 import { SearchResultItemComponent } from './search-results-block/search-result-item/search-result-item.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { SortPipePipe } from './pipes/sort-pipe.pipe';
-import { TimeStyleDirective } from './directives/time-style.directive';
-import { FilterPipe } from './pipes/filter.pipe';
+// import { SortPipePipe } from './pipes/sort-pipe.pipe';
+// import { TimeStyleDirective } from './directives/time-style.directive';
+// import { FilterPipe } from './pipes/filter.pipe';
 // ------ new modules - 03 -------------------------------------------------------------------
 import { CoreModule } from './core/core.module';
 import { AuthModule } from './auth/auth.module';
@@ -27,9 +27,9 @@ import { YoutubeModule } from './youtube/youtube.module';
     FilteringCriteriaBlockComponent,
     SearchResultsBlockComponent,
     SearchResultItemComponent,
-    SortPipePipe,
-    TimeStyleDirective,
-    FilterPipe,
+    // SortPipePipe,
+    // TimeStyleDirective,
+    // FilterPipe,
   ],
   imports: [
     BrowserModule,
