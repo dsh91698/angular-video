@@ -9,8 +9,8 @@ export class AuthService {
 
   constructor() { }
 
-  public login(loginForm: SubmitEvent): void {
-    console.log('Logged in!', (loginForm));
+  public login(loginData: { login: string, password: string }): void {
+    console.log('Logged in! auth->', (loginData));
   }
 
   public logout(): void {

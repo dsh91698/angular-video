@@ -34,8 +34,9 @@ export class LoginComponent implements OnInit {
   
   submitForm() {
     console.log('submitForm...', this.loginForm.value);
-    const loginFormData = {...this.loginForm.value}
-    console.log('login...', loginFormData);
+    // const loginFormData = {...this.loginForm.value}
+    // console.log('login...', loginFormData);
+    this.authService.login(this.loginForm.value);
 
   }
 }
