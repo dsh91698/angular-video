@@ -21,5 +21,9 @@ export class AuthService {
     this.userName = localStorage.getItem('username') || 'username';
   }
 
+  public isLoggenIn(): boolean {
+    return false;
+  }
+
   
 }
