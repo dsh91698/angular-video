@@ -3,6 +3,7 @@ import { IYouTubeItem } from '../models/IYouTubeItem';
 import { mockResponse } from '../response';
 import { Router } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
+import { AuthService } from '../auth/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -27,7 +28,7 @@ export class HeaderComponent  {
 
   @Output() filterDateViewsEvent = new EventEmitter<'dateAsc' | 'viewsAsc' | 'dateDes' | 'viewsDes'>();
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, public authService: AuthService) { }
 
   public toggleSearchSection() {
     this.isSortingSectionShown = !this.isSortingSectionShown;

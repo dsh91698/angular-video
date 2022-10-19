@@ -18,6 +18,7 @@ import { CoreModule } from './core/core.module';
 import { AuthModule } from './auth/auth.module';
 import { SharedModule } from './shared/shared.module';
 import { YoutubeModule } from './youtube/youtube.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,8 @@ import { YoutubeModule } from './youtube/youtube.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
+    FormsModule,
+    ReactiveFormsModule,
     
     CoreModule,
     SharedModule,
@@ -44,6 +47,10 @@ import { YoutubeModule } from './youtube/youtube.module';
   ],
   providers: [],
   bootstrap: [AppComponent],
+  exports: [
+    FormsModule,
+    ReactiveFormsModule,
+  ]
 })
 export class AppModule { }
  

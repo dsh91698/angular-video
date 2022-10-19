@@ -6,7 +6,13 @@
         <button class="settings-button" (click)="toggleSearchSection()"> </button>
 
     </div>
-    <div class="header-login">Your Name</div>
+    <div class="header-login">{{authService.userName}}</div>
+
+    <button class="logout__btn" 
+    (click)="authService.logout()"
+    >Logout</button>
+
+
 </header>
 
 <div class="sorting-by__wrapper" *ngIf="isSortingSectionShown">

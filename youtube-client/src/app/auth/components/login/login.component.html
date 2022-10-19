@@ -1,14 +1,18 @@
 <div class="login-form__wrapper">
     <h2>Login</h2>
-<form method="post" class="login-form">
+<form class="login-form" 
+[formGroup]="loginForm"
+(ngSubmit)="submitForm()"
+>
     <div class="login__wrapper">
         <label for="login">login:</label>
-        <input type="login" id="login" name="user_login" />
+        <input type="login" id="login" name="user_login" formControlName="login">
     </div>
     <div class="password__wrapper">
         <label for="password">password:</label>
-        <input id="password" name="password" type="password">
+        <input id="password" name="password" type="password" formControlName="password">
     </div>
-    <button class="submit__btn" type="submit">Login</button>
+    <button class="submit__btn" type="submit"
+    >Login</button>
 </form>
 </div>
