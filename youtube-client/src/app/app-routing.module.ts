@@ -4,7 +4,8 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/components/login/login.component';
 import { LoginGuard } from './auth/guards/login-guard.guard';
 import { Page404Component } from './core/components/page404/page404.component';
-import { SearchResultsBlockComponent } from './search-results-block/search-results-block.component';
+import { SearchResultsBlockComponent } from './youtube/components/search-results-block/search-results-block.component';
+import { YoutubeModule } from './youtube/youtube.module';
 
 const routes: Routes = [
   //routes
@@ -15,7 +16,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    YoutubeModule,
+    RouterModule.forRoot(routes),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule { }

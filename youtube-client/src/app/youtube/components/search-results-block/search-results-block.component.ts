@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IYouTubeItem } from '../models/IYouTubeItem';
+import { IYouTubeItem } from '../../../models/IYouTubeItem';
 
 @Component({
   selector: 'app-search-results-block',

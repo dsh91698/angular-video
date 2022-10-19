@@ -1,9 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { IYouTubeItem } from '../models/IYouTubeItem';
-import { mockResponse } from '../response';
+import { IYouTubeItem } from '../../../models/IYouTubeItem';
+import { mockResponse } from '../../../response';
 import { Router } from '@angular/router';
-import { SharedModule } from '../shared/shared.module';
-import { AuthService } from '../auth/services/auth.service';
+import { AuthService } from 'src/app/auth/services/auth.service';
+// import { SharedModule } from '../shared/shared.module';
 
 @Component({
   selector: 'app-header',
