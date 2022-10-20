@@ -26,10 +26,12 @@ export class DataService {
   //methods
 
   getFilterValue() {
+    console.log('get filter val ->', this.filterValue);
     return this.filterValue;
   }
 
   setFilterValue(filterValue: string) {
+    console.log('set filter val ->', this.filterValue, filterValue);
     return this.filterValue = filterValue;
   }
 

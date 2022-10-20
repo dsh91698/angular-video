@@ -13,7 +13,7 @@ export class SearchResultsBlockComponent  implements OnInit {
   public response:IYouTubeItem[] = this.dataService.response;
 
   // // @Input() 
-  public filterValue = this.dataService.getFilterValue();
+  public filterValue = this.dataService.filterValue;
 
   // // @Input()
   public sortType: 'dateAsc' | 'viewsAsc' | 'dateDes' | 'viewsDes' = this.dataService.sortType;
@@ -21,7 +21,6 @@ export class SearchResultsBlockComponent  implements OnInit {
   constructor(public dataService: DataService) { }
 
   ngOnInit(): void {
-    // throw new Error('Method not implemented.');
     this.response = this.dataService.response;
 
     // @Input() 
