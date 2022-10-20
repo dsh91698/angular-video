@@ -1,4 +1,5 @@
 import { Component, Output } from '@angular/core';
+import { DataService } from './core/services/data.service';
 import { IYouTubeItem } from './models/IYouTubeItem';
 
 @Component({
@@ -14,9 +15,12 @@ export class AppComponent {
 
   public sortType: 'dateAsc' | 'viewsAsc' | 'dateDes' | 'viewsDes' = 'dateAsc';
 
-  public getSearchEventFromHeader(response: IYouTubeItem[]): void {
+  public getSearchEventFromHeader(response: IYouTubeItem[]): void {//keep 
     this.response = response;
   }
+
+
+  
 
   public getFilterValue(filterValue: string):void {
     this.filterValue = filterValue;
@@ -26,5 +30,8 @@ export class AppComponent {
     this.sortType = sortType;
   }
 
-  constructor() {}
-}
+  constructor(public dataService: DataService) {}
+
+
+  
+} 

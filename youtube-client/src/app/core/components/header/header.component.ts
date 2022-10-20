@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IYouTubeItem } from '../../../models/IYouTubeItem';
-import { mockResponse } from '../../../response';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/services/auth.service';
+import { DataService } from '../../services/data.service';
 // import { SharedModule } from '../shared/shared.module';
 
 @Component({
@@ -11,33 +11,40 @@ import { AuthService } from 'src/app/auth/services/auth.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent  {
+//----------------keep-1----------------------------------
+  public isSortingSectionShown = false;// keep
+  //---------------------1----------------------------------
 
-  public isSortingSectionShown = false;
-
-  public response: IYouTubeItem[] = mockResponse.items;
+  // public response: IYouTubeItem[] = mockResponse.items;
 
   private isSortedByDate = true;
 
   private isSortedByViews = false;
 
-  @Output() searchEvent = new EventEmitter<IYouTubeItem[]>();
+  @Output() searchEvent = new EventEmitter<IYouTubeItem[]>(); //keep
 
-  @Output() sortEvent = new EventEmitter<IYouTubeItem[]>();
+
 
   @Output() filterEvent = new EventEmitter<string>();
 
   @Output() filterDateViewsEvent = new EventEmitter<'dateAsc' | 'viewsAsc' | 'dateDes' | 'viewsDes'>();
 
-  constructor(private router: Router, public authService: AuthService) { }
+  constructor(
+    private router: Router, 
+    public authService: AuthService,
+    public dataService: DataService) { }
 
+  //--------------keep-1-----------------------------------------------------------
   public toggleSearchSection() {
     this.isSortingSectionShown = !this.isSortingSectionShown;
   }
 
+  //---------------------------------
   public search() {
     this.router.navigateByUrl('/');
-    this.searchEvent.emit(this.response);
+    this.searchEvent.emit(this.dataService.response);
   }
+  // --------------------1----------------------------------------------------------
 
   public onSortingClick(sortType:string) {
     if (sortType === 'views' && this.isSortedByViews) {
