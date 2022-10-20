@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Input } from '@angular/core';
 import { IYouTubeItem } from 'src/app/models/IYouTubeItem';
 import { mockResponse } from '../../response';
 
@@ -9,30 +9,38 @@ import { mockResponse } from '../../response';
 export class DataService {
 
   //vars
-  public response: IYouTubeItem[] = mockResponse.items;
+  public _response: IYouTubeItem[] = mockResponse.items;
 
-  public filterValue = '';
+  private _filterValue = '';
 
   public sortType: 'dateAsc' | 'viewsAsc' | 'dateDes' | 'viewsDes' = 'dateAsc';
 
-
-
-  constructor() { }
 
   setResponse() {
     this.response = mockResponse.items;
   }
 
   //methods
-
-  getFilterValue() {
-    console.log('get filter val ->', this.filterValue);
-    return this.filterValue;
+ 
+  public get filterValue(): string {
+    console.log('get filter val ->', this._filterValue);
+    return this._filterValue;
   }
 
-  setFilterValue(filterValue: string) {
-    console.log('set filter val ->', this.filterValue, filterValue);
-    return this.filterValue = filterValue;
+  public set filterValue(filterValue: string) {
+    console.log('set filter val ->', filterValue, this._filterValue);
+    this._filterValue = filterValue;
   }
+
+  public get response() {
+    return this._response;
+  }
+
+  public set response(response: IYouTubeItem[]) {
+    this._response = response;
+  }
+
+  constructor() { }
+
 
 }

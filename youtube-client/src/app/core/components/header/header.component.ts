@@ -73,7 +73,7 @@ export class HeaderComponent  {
 
   public onInput(event: Event) {
     let textInput = (event.target as HTMLInputElement).value;
-    this.dataService.setFilterValue(textInput);
+    this.dataService.filterValue = textInput;
     return;
   }
 
