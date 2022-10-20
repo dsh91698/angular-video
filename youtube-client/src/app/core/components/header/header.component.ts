@@ -21,13 +21,13 @@ export class HeaderComponent  {
 
   private isSortedByViews = false;
 
-  @Output() searchEvent = new EventEmitter<IYouTubeItem[]>(); //keep
+  // @Output() searchEvent = new EventEmitter<IYouTubeItem[]>(); //keep
 
 
 
-  @Output() filterEvent = new EventEmitter<string>();
+  // @Output() filterEvent = new EventEmitter<string>();
 
-  @Output() filterDateViewsEvent = new EventEmitter<'dateAsc' | 'viewsAsc' | 'dateDes' | 'viewsDes'>();
+  // @Output() filterDateViewsEvent = new EventEmitter<'dateAsc' | 'viewsAsc' | 'dateDes' | 'viewsDes'>();
 
   constructor(
     private router: Router, 
@@ -39,41 +39,41 @@ export class HeaderComponent  {
     this.isSortingSectionShown = !this.isSortingSectionShown;
   }
 
-  //---------------------------------
   public search() {
     this.router.navigateByUrl('/');
-    this.searchEvent.emit(this.dataService.response);
+    this.dataService.setResponse();
+    // this.searchEvent.emit(this.dataService.response);
   }
   // --------------------1----------------------------------------------------------
 
   public onSortingClick(sortType:string) {
     if (sortType === 'views' && this.isSortedByViews) {
       this.isSortedByViews = false;
-      this.filterDateViewsEvent.emit('viewsDes');
+      this.dataService.sortType = 'viewsDes';
       return;
     }
 
     if (sortType === 'date' && this.isSortedByDate) {
       this.isSortedByDate = false;
-      this.filterDateViewsEvent.emit('dateDes');
+      this.dataService.sortType = 'dateDes';
       return;
     }
     if (sortType === 'date' && !this.isSortedByDate) {
       this.isSortedByDate = true;
-      this.filterDateViewsEvent.emit('dateAsc');
+      this.dataService.sortType = 'dateAsc';
       return;
     }
   
     if (sortType === 'views' && !this.isSortedByViews) {
       this.isSortedByViews = true;
-      this.filterDateViewsEvent.emit('viewsAsc');
+      this.dataService.sortType = 'viewsAsc';
       return;
     }
   }
 
   public onInput(event: Event) {
     let textInput = (event.target as HTMLInputElement).value;
-    this.filterEvent.emit(textInput);
+    this.dataService.setFilterValue(textInput);
     return;
   }
 

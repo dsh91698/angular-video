@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { DataService } from 'src/app/core/services/data.service';
 import { IYouTubeItem } from '../../../models/IYouTubeItem';
 
 @Component({
@@ -6,17 +7,32 @@ import { IYouTubeItem } from '../../../models/IYouTubeItem';
   templateUrl: './search-results-block.component.html',
   styleUrls: ['./search-results-block.component.scss'],
 })
-export class SearchResultsBlockComponent  {
+export class SearchResultsBlockComponent  implements OnInit {
   
-  @Input() 
-  public response:IYouTubeItem[] = [];
+  // @Input() 
+  public response:IYouTubeItem[] = this.dataService.response;
 
-  @Input() 
-  public filterValue = '';
+  // // @Input() 
+  public filterValue = this.dataService.getFilterValue();
 
-  @Input()
-  public sortType: 'dateAsc' | 'viewsAsc' | 'dateDes' | 'viewsDes' = 'dateAsc';
+  // // @Input()
+  public sortType: 'dateAsc' | 'viewsAsc' | 'dateDes' | 'viewsDes' = this.dataService.sortType;
 
-  constructor() { }
+  constructor(public dataService: DataService) { }
+
+  ngOnInit(): void {
+    // throw new Error('Method not implemented.');
+    this.response = this.dataService.response;
+
+    // @Input() 
+    this.filterValue = this.dataService.getFilterValue();
+  
+    // @Input()
+    this.sortType = this.dataService.sortType;
+  
+  
+  }
+
+
 
 }

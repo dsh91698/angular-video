@@ -1,17 +1,3 @@
-  <app-header
-  (searchEvent)="getSearchEventFromHeader($event)"
-  
-  (filterEvent)="getFilterValue($event)"
-  (filterDateViewsEvent)="getfilterDateViewsEvent($event)"
-
-  ></app-header>
-
-  <app-search-results-block
-  [response]="response"
-  [filterValue]="filterValue"
-  [sortType]="sortType"
-
-  ></app-search-results-block>
-
+  <app-header></app-header>
   
 <router-outlet></router-outlet>

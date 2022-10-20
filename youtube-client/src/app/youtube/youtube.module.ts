@@ -20,6 +20,6 @@ import { SearchResultItemComponent } from './components/search-results-block/sea
   exports: [
     SearchResultsBlockComponent,
     SearchResultItemComponent,
-  ]
+  ],
 })
 export class YoutubeModule { }
