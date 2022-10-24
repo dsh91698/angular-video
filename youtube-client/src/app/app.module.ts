@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 // ------ new modules - 03 -------------------------------------------------------------------
 import { CoreModule } from './core/core.module';
-import { AuthModule } from './auth/auth.module';
+// import { AuthModule } from './auth/auth.module';
 import { SharedModule } from './shared/shared.module';
 // import { YoutubeModule } from './youtube/youtube.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -27,7 +27,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CoreModule,
     SharedModule,
     // YoutubeModule,
-    AuthModule,
+    // AuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

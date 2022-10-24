@@ -12,11 +12,12 @@ const routes: Routes = [
 {path: '', loadChildren: () => import('./youtube/youtube.module').then(m => m.YoutubeModule)},
 // {path: '', loadChildren: () => import('./core/core.module').then(m => m.CoreModule)},
 // {path: '404', loadChildren: () => import('./core/core.module').then(m => m.CoreModule)},
+{path: 'login', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)},
 
   //routes
   // { path: '', component: AppComponent },
   // { path: '', component: SearchResultsBlockComponent, canActivate: [LoginGuard] }, // moved into Youtube.routing
-  {path: 'login', component: LoginComponent},
+  // {path: 'login', component: LoginComponent},
   // { path: '404', component: Page404Component, canActivate: [LoginGuard] }, // moved  into core.routing
   { path: '**', redirectTo:'404', pathMatch: 'full'},
   // { path: '**', component: Page404Component, canActivate: [LoginGuard] },
