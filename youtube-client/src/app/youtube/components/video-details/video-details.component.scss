@@ -47,9 +47,10 @@
 
 }
 
-.card-description__wrapper {
+.card-description__wrapper { 
     padding: 25px ;
     padding-left: 30px;
+    border-bottom: 8px solid red;
 
     display: flex;
     flex-direction: column;
