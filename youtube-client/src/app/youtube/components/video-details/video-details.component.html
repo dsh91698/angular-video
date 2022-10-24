@@ -1,6 +1,6 @@
-<p>videoID->{{videoId}}</p>
+<!-- <p>videoID->{{videoId}}</p> -->
 <!-- <p>videoData-1->{{videoData[0] | json}}</p> -->
-<p>videoItem->{{card.statistics| json}}</p>
+<!-- <p>videoItem->{{card.statistics| json}}</p> -->
 <!-- <p>videoID->{{videoId}}</p> -->
 
 <div class="card__wrapper">
@@ -15,10 +15,33 @@
     <div class="card-description__wrapper">
 
         <div class="card-title">{{card.snippet.title}}</div>
+
         <div class="card-description">
             <span>Description:</span>
-            {{card.snippet.description}}</div>
-        <div class="card-statistics">stata</div>
+            {{card.snippet.description}}
+        </div>
+
+        <div class="card-statistics">
+
+            <div class="stat-item">
+                <img src="../../assets/icons/viewed.svg" alt="views" class="stat-item__img">
+                <div class="stat-item__counter">{{card.statistics.viewCount}}</div>
+            </div>
+            <div class="stat-item">
+                <img src="../../assets/icons/liked.svg" alt="likes" class="stat-item__img">
+                <div class="stat-item__counter">{{card.statistics.likeCount}}</div>
+            </div>
+            <div class="stat-item">
+                <img src="../../assets/icons/dislike.svg" alt="dislikes" class="stat-item__img">
+                <div class="stat-item__counter">{{card.statistics.dislikeCount}}</div>
+            </div>
+            <div class="stat-item">
+                <img src="../../assets/icons/comments.svg" alt="comments" class="stat-item__img">
+                <div class="stat-item__counter">{{card.statistics.commentCount}}</div>
+            </div>
+
+
+        </div>
 
     </div>
 </div>
