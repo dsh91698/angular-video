@@ -8,6 +8,11 @@ import { SearchResultsBlockComponent } from './youtube/components/search-results
 import { YoutubeModule } from './youtube/youtube.module';
 
 const routes: Routes = [
+  // lazy loading
+{path: '', loadChildren: () => import('./youtube/youtube.module').then(m => m.YoutubeModule)},
+// {path: '', loadChildren: () => import('./core/core.module').then(m => m.CoreModule)},
+// {path: '404', loadChildren: () => import('./core/core.module').then(m => m.CoreModule)},
+
   //routes
   // { path: '', component: AppComponent },
   // { path: '', component: SearchResultsBlockComponent, canActivate: [LoginGuard] }, // moved into Youtube.routing
