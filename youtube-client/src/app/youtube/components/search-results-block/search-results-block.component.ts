@@ -19,7 +19,7 @@ export class SearchResultsBlockComponent  implements OnInit {
   }
 
   ngOnInit(): void {
-    throw new Error('ngOnInit - Method not implemented.');
+    // throw new Error('ngOnInit - Method not implemented.');
   }
 
   public get filterValue() {
