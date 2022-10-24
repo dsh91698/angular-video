@@ -10,9 +10,11 @@ import { YoutubeModule } from './youtube/youtube.module';
 const routes: Routes = [
   //routes
   // { path: '', component: AppComponent },
-  { path: '', component: SearchResultsBlockComponent, canActivate: [LoginGuard] },
+  // { path: '', component: SearchResultsBlockComponent, canActivate: [LoginGuard] }, // moved into Youtube.routing
   {path: 'login', component: LoginComponent},
-  { path: '**', component: Page404Component, canActivate: [LoginGuard] },
+  // { path: '404', component: Page404Component, canActivate: [LoginGuard] }, // moved  into core.routing
+  { path: '**', redirectTo:'404', pathMatch: 'full'},
+  // { path: '**', component: Page404Component, canActivate: [LoginGuard] },
 ];
 
 @NgModule({
