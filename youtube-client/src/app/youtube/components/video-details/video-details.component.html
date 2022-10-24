@@ -12,7 +12,7 @@
     <div class="card-img__wrapper">
         <img src="{{card.snippet.thumbnails.medium.url}}" alt="image" class="card-img__img">
     </div>
-    <div class="card-description__wrapper">
+    <div class="card-description__wrapper" appTimeStyle publishedAt="{{card.snippet.publishedAt}}">
 
         <div class="card-title">{{card.snippet.title}}</div>
 
