@@ -1,1 +1,24 @@
-<p>video-details works!</p>
+<p>videoID->{{videoId}}</p>
+<!-- <p>videoData-1->{{videoData[0] | json}}</p> -->
+<p>videoItem->{{card.statistics| json}}</p>
+<!-- <p>videoID->{{videoId}}</p> -->
+
+<div class="card__wrapper">
+    <div class="top-arrow">
+        <button type="button" class="back-btn" routerLink='/'>
+            <img src="../../../../assets/icons/back_button.svg" alt="back" class="back-btn__img">
+        </button>
+    </div>
+    <div class="card-img__wrapper">
+        <img src="{{card.snippet.thumbnails.medium.url}}" alt="image" class="card-img__img">
+    </div>
+    <div class="card-description__wrapper">
+
+        <div class="card-title">{{card.snippet.title}}</div>
+        <div class="card-description">
+            <span>Description:</span>
+            {{card.snippet.description}}</div>
+        <div class="card-statistics">stata</div>
+
+    </div>
+</div>
