@@ -1,8 +1,3 @@
-<!-- <p>videoID->{{videoId}}</p> -->
-<!-- <p>videoData-1->{{videoData[0] | json}}</p> -->
-<!-- <p>videoItem->{{card.statistics| json}}</p> -->
-<!-- <p>videoID->{{videoId}}</p> -->
-
 <div class="card__wrapper">
     <div class="top-arrow">
         <button type="button" class="back-btn" routerLink='/'>
@@ -12,7 +7,7 @@
     <div class="card-img__wrapper">
         <img src="{{card.snippet.thumbnails.medium.url}}" alt="image" class="card-img__img">
     </div>
-    <div class="card-description__wrapper" appTimeStyle publishedAt="{{card.snippet.publishedAt}}">
+    <div class="card-description__wrapper" appTimeStyle [publishedAt]="card.snippet.publishedAt">
 
         <div class="card-title">{{card.snippet.title}}</div>
 
