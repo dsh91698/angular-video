@@ -22,7 +22,7 @@ import { VideoDetailsComponent } from './components/video-details/video-details.
   exports: [
     SearchResultsBlockComponent,
     SearchResultItemComponent,
-    SharedModule,
+    VideoDetailsComponent,
   ],
 })
 export class YoutubeModule { }
