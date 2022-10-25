@@ -1,6 +1,5 @@
-import { Component, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { DataService } from './core/services/data.service';
-import { IYouTubeItem } from './models/IYouTubeItem';
 
 @Component({
   selector: 'app-root',

@@ -1,4 +1,4 @@
-import { Injectable, Input } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { IYouTubeItem } from 'src/app/models/IYouTubeItem';
 import { mockResponse } from '../../response';
 
@@ -39,8 +39,5 @@ export class DataService {
   public set response(response: IYouTubeItem[]) {
     this._response = response;
   }
-
-  constructor() { }
-
 
 }

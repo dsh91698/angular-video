@@ -1,9 +1,7 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { IYouTubeItem } from '../../../models/IYouTubeItem';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { DataService } from '../../services/data.service';
-// import { SharedModule } from '../shared/shared.module';
 
 @Component({
   selector: 'app-header',
@@ -11,30 +9,17 @@ import { DataService } from '../../services/data.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent  {
-//----------------keep-1----------------------------------
-  public isSortingSectionShown = false;// keep
-  //---------------------1----------------------------------
-
-  // public response: IYouTubeItem[] = mockResponse.items;
+  public isSortingSectionShown = false;
 
   private isSortedByDate = true;
 
   private isSortedByViews = false;
-
-  // @Output() searchEvent = new EventEmitter<IYouTubeItem[]>(); //keep
-
-
-
-  // @Output() filterEvent = new EventEmitter<string>();
-
-  // @Output() filterDateViewsEvent = new EventEmitter<'dateAsc' | 'viewsAsc' | 'dateDes' | 'viewsDes'>();
 
   constructor(
     private router: Router, 
     public authService: AuthService,
     public dataService: DataService) { }
 
-  //--------------keep-1-----------------------------------------------------------
   public toggleSearchSection() {
     this.isSortingSectionShown = !this.isSortingSectionShown;
   }
@@ -42,9 +27,7 @@ export class HeaderComponent  {
   public search() {
     this.router.navigateByUrl('/');
     this.dataService.setResponse();
-    // this.searchEvent.emit(this.dataService.response);
   }
-  // --------------------1----------------------------------------------------------
 
   public onSortingClick(sortType:string) {
     if (sortType === 'views' && this.isSortedByViews) {

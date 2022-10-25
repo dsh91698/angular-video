@@ -10,6 +10,4 @@ export class SearchResultItemComponent  {
 
   @Input() public vcard!: IYouTubeItem;
 
-  constructor() { }
-
 }

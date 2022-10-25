@@ -1,10 +1,10 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService implements OnInit {
+export class AuthService {
 
   public userName = 'Username';
 
@@ -33,10 +33,6 @@ export class AuthService implements OnInit {
     } else {
       return true;
     }
-  }
-
-  ngOnInit(): void {
-    // throw new Error('Method not implemented.');
   }
 
 }

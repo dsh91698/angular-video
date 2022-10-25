@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/core/services/data.service';
 import { IYouTubeItem } from '../../../models/IYouTubeItem';
 
@@ -18,10 +18,7 @@ export class SearchResultsBlockComponent  implements OnInit {
   constructor(public dataService: DataService) { 
   }
 
-  ngOnInit(): void {
-    // throw new Error('ngOnInit - Method not implemented.');
-  }
-
+ //methods
   public get filterValue() {
     return this.dataService.filterValue;
   }
