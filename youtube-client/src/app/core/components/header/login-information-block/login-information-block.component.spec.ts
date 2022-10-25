@@ -8,9 +8,9 @@ describe('LoginInformationBlockComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LoginInformationBlockComponent ]
+      declarations: [ LoginInformationBlockComponent ],
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(LoginInformationBlockComponent);
     component = fixture.componentInstance;

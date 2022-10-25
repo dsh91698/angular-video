@@ -8,19 +8,22 @@ import { IYouTubeItem } from '../../../models/IYouTubeItem';
 @Component({
   selector: 'app-video-details',
   templateUrl: './video-details.component.html',
-  styleUrls: ['./video-details.component.scss']
+  styleUrls: ['./video-details.component.scss'],
 })
 export class VideoDetailsComponent implements OnInit {
 
   public videoId = '';
+
   public videoIdtype = '';
+
   public videoData!: IYouTubeItem[];
+
   public card!: IYouTubeItem;
 
   constructor(
     private route: ActivatedRoute, 
-    public dataService: DataService
-    ) { }
+    public dataService: DataService,
+  ) { }
 
 
   ngOnInit(): void {
