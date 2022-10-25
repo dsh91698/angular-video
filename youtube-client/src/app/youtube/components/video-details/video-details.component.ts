@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-// import { filter } from 'rxjs';
 import { DataService } from 'src/app/core/services/data.service';
 import { IYouTubeItem } from '../../../models/IYouTubeItem';
  

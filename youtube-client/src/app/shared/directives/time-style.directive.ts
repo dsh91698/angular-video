@@ -6,7 +6,6 @@ import { Directive, ElementRef, Input, Renderer2, OnInit } from '@angular/core';
 export class TimeStyleDirective implements OnInit {
 
   @Input() public publishedAt = '';
-  // @Input('appTimeStyle') publishedAt:string = '';
 
   private color = 'red';
 
