@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { DataService } from 'src/app/core/services/data.service';
 import { IYouTubeItem } from '../../../models/IYouTubeItem';
 
@@ -7,7 +7,7 @@ import { IYouTubeItem } from '../../../models/IYouTubeItem';
   templateUrl: './search-results-block.component.html',
   styleUrls: ['./search-results-block.component.scss'],
 })
-export class SearchResultsBlockComponent  implements OnInit {
+export class SearchResultsBlockComponent {
   
   public response:IYouTubeItem[] = this.dataService.response;
 
@@ -18,7 +18,7 @@ export class SearchResultsBlockComponent  implements OnInit {
   constructor(public dataService: DataService) { 
   }
 
- //methods
+  //methods
   public get filterValue() {
     return this.dataService.filterValue;
   }
