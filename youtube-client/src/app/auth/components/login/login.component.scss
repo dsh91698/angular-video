@@ -3,33 +3,25 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-
     flex-wrap: wrap;
     align-items: center;
-
     background-color: #ffff;
     width: 100%;
-    // height: 100vh;
 }
 
 .login-form__wrapper {
     width: 344px;
     height: 248px;
-    // text-align: left;
     display: flex;
     flex-direction: column;
-    // justify-content: center;
-    // align-items: left;
     background: #F2F2F2;
     border-radius: 5px;
-
     // text - login
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
     font-size: 18px;
     line-height: 21px;
-
     color: #000000;
 
     h1,
@@ -46,8 +38,6 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-
-
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
@@ -55,9 +45,7 @@
     line-height: 28px;
     display: flex;
     align-items: center;
-
     color: #828282;
-
 
     input {
         width: 304px;
@@ -65,17 +53,13 @@
         background: #E0E0E0;
         border: none;
         border-radius: 2px;
-
         font-family: 'Roboto';
         font-style: normal;
         font-weight: 400;
         font-size: 10px;
         line-height: 12px;
-        /* identical to box height */
-
         display: flex;
         align-items: center;
-
         color: #000000;
     }
 
@@ -87,11 +71,8 @@
         font-weight: 400;
         font-size: 10px;
         line-height: 12px;
-        /* identical to box height */
-
         display: flex;
         align-items: center;
-
         color: #828282;
     }
 
@@ -101,7 +82,6 @@
         background: #85B9FF;
         border: none;
         border-radius: 5px;
-
         font-family: 'Roboto';
         font-style: normal;
         font-weight: 400;
@@ -111,11 +91,8 @@
         justify-content: center;
         align-items: center;
         text-align: center;
-
         color: #FFFFFF;
         box-shadow: 1px 1px 5px #828282;
-
-
         margin-top: 21px;
 
         &:hover {
@@ -133,5 +110,4 @@
 .password__wrapper {
     display: flex;
     flex-direction: column;
-
 }

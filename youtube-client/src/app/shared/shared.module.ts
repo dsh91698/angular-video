@@ -1,8 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { SharedRoutingModule } from './shared-routing.module';
-
 import { TimeStyleDirective } from './directives/time-style.directive';
 import { FilterPipe } from './pipes/filter.pipe';
 import { SortPipePipe } from './pipes/sort-pipe.pipe';
@@ -16,7 +13,6 @@ import { SortPipePipe } from './pipes/sort-pipe.pipe';
   ],
   imports: [
     CommonModule,
-    SharedRoutingModule,
   ],
   exports: [
     CommonModule,
