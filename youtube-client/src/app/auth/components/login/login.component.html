@@ -15,21 +15,20 @@
 
         </div>
         <pre>
-            '-->', {{ loginForm.get('password')?.errors | json}}
-            'req login'{{loginForm.hasError('required', ['login'])}}
-            'email'{{loginForm.hasError('email', ['login'])}}
+            '-->', {{ password?.errors?.['minlength']| json}}
         </pre>
 
         <div class="password__wrapper">
             <label for="password">password:</label>
             <input id="password" name="password" type="password" formControlName="password">
-            <div class="validation" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+            <div class="validation" *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.touched || loginForm.get('password')?.dirty )">
                 <small *ngIf="loginForm.hasError('required', ['password'])">
                     Please enter a password
                 </small>
-                <small *ngIf="loginForm.hasError('minlength', ['password'])">
-                    Minimal length of password is 8 chars
-                </small>
+                <div *ngIf="loginForm.hasError('minlength', ['password'])">
+                    <small> Minimal length of password is {{password?.errors?.['minlength']?.['requiredLength'] }} chars </small> 
+                    <small>You entered {{password?.errors?.['minlength']?.['actualLength'] }} char(s)</small>
+                </div>
 
             </div>
         </div>
