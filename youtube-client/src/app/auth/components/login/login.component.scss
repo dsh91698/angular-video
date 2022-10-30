@@ -11,7 +11,7 @@
 
 .login-form__wrapper {
     width: 344px;
-    height: 248px;
+    min-height: 250px;
     display: flex;
     flex-direction: column;
     background: #F2F2F2;
@@ -98,6 +98,11 @@
         &:hover {
             cursor: pointer;
             box-shadow: 3px 3px 5px #828282;
+        }
+
+        &:disabled {
+            background: #899ab0;
+            box-shadow: 1px 1px 1px #828282;
         }
     }
 }
