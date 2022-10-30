@@ -1,17 +1,30 @@
 <div class="login-form__wrapper">
     <h2>Login</h2>
-<form class="login-form" 
-[formGroup]="loginForm"
-(ngSubmit)="submitForm()"
->
-    <div class="login__wrapper">
-        <label for="login">login:</label>
-        <input type="login" id="login" name="user_login" formControlName="login">
-    </div>
-    <div class="password__wrapper">
-        <label for="password">password:</label>
-        <input id="password" name="password" type="password" formControlName="password">
-    </div>
-    <button class="submit__btn" type="submit" [disabled]="loginForm.invalid" >Login</button>
-</form>
+    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="submitForm()">
+        <div class="login__wrapper">
+            <label for="login">login:</label>
+            <input type="login" id="login" name="login" formControlName="login">
+            <div class="validation" *ngIf="loginForm.get('login')?.invalid && loginForm.get('login')?.dirty">
+                <small *ngIf="loginForm.hasError('required', ['login'])"> Please enter a login email</small>
+                <small *ngIf="loginForm.hasError('email', ['login'])">The login email is invalid</small>
+            </div>
+    
+        </div>
+        <pre>
+            '-->', {{ loginForm.get('password')?.errors | json}}
+            'req login'{{loginForm.hasError('required', ['login'])}}
+            'email'{{loginForm.hasError('email', ['login'])}}
+        </pre>
+
+        <div class="password__wrapper">
+            <label for="password">password:</label>
+            <input id="password" name="password" type="password" formControlName="password">
+            <div class="validation" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+                <small *ngIf="loginForm.hasError('required', ['password'])"> Please enter a password</small>
+                <small *ngIf="loginForm.hasError('minlength', ['password'])"> Minimal length of password is 8 chars</small>
+
+            </div>
+        </div>
+        <button class="submit__btn" type="submit" [disabled]="loginForm.invalid">Login</button>
+    </form>
 </div>
