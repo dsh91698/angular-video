@@ -32,6 +32,16 @@
         margin-left: 15px;
     }
 
+    .validation {
+        border-radius: 5px;
+        background-color: hsla(27, 87%, 88%, .5);
+        padding-left: 7px;
+        margin-top: 9px;
+        max-width: 304px;
+
+
+    }
+
     small {
        font-size: .5em;
        color: #D62828;
@@ -119,6 +129,7 @@
         &:disabled {
             background: #899ab0;
             box-shadow: 1px 1px 1px #828282;
+            margin-bottom: 10px;
         }
     }
 }

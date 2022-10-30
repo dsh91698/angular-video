@@ -14,9 +14,6 @@
             </div>
 
         </div>
-        <pre>
-            '-->', {{ password?.errors| json}}
-        </pre>
 
         <div class="password__wrapper">
             <label for="password">password:</label>
@@ -26,16 +23,15 @@
                     Please enter a password
                 </small>
                 <div *ngIf="loginForm.hasError('minlength', ['password'])">
-                    <small> Minimal length of password is {{password?.errors?.['minlength']?.['requiredLength'] }} chars </small> 
-                    <small>You entered {{password?.errors?.['minlength']?.['actualLength'] }} char(s)</small>
+                    <small> Minimal length of password is {{password?.errors?.['minlength']?.['requiredLength'] }}.
+                    You entered {{password?.errors?.['minlength']?.['actualLength'] }} char(s)</small>
                 </div>
-                <hr>
                 <div *ngIf="password?.errors?.['isNotStrong']">
                     <small>Your password isn't strong enough!</small>
                     <small *ngIf="password?.errors?.['isWithoutNumbers']" >Add at least one number: 1,2 ...</small>
-                    <small *ngIf="password?.errors?.['isWithoutUppercase']" >Add at least one UPPERCASE letter: ABC...</small>
-                    <small *ngIf="password?.errors?.['isWithoutLowercase']" >Add at least one lowercase letter: xyz...</small>
-                    <small *ngIf="password?.errors?.['isWithoutSpecials']" >Add at least one special symbol: !@%...</small>
+                    <small *ngIf="password?.errors?.['isWithoutUppercase']" >Add at least one UPPERCASE letter: ABC ...</small>
+                    <small *ngIf="password?.errors?.['isWithoutLowercase']" >Add at least one lowercase letter: xyz ...</small>
+                    <small *ngIf="password?.errors?.['isWithoutSpecials']" >Add at least one special symbol: !@% ...</small>
                 </div>
 
             </div>
