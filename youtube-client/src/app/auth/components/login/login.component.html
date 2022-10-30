@@ -15,8 +15,7 @@
 
         </div>
         <pre>
-            '-->', {{ password?.errors?.['minlength']| json}}
-            '-strong->', {{ this.isPasswordStrong | json}}
+            '-->', {{ password?.errors| json}}
         </pre>
 
         <div class="password__wrapper">
@@ -29,6 +28,9 @@
                 <div *ngIf="loginForm.hasError('minlength', ['password'])">
                     <small> Minimal length of password is {{password?.errors?.['minlength']?.['requiredLength'] }} chars </small> 
                     <small>You entered {{password?.errors?.['minlength']?.['actualLength'] }} char(s)</small>
+                </div>
+                <div *ngIf="password?.errors?.['isNotStrong']">
+                    <small>Your password isn't strong enough!</small>
                 </div>
 
             </div>
