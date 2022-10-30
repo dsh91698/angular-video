@@ -16,6 +16,7 @@
         </div>
         <pre>
             '-->', {{ password?.errors?.['minlength']| json}}
+            '-strong->', {{ this.isPasswordStrong | json}}
         </pre>
 
         <div class="password__wrapper">
