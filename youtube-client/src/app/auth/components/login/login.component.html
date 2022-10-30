@@ -3,7 +3,7 @@
     <form class="login-form" [formGroup]="loginForm" (ngSubmit)="submitForm()">
         <div class="login__wrapper">
             <label for="login">login:</label>
-            <input type="login" id="login" name="login" formControlName="login">
+            <input type="email" id="login" name="login" formControlName="login">
             <div class="validation" *ngIf="loginForm.get('login')?.invalid && loginForm.get('login')?.dirty">
                 <small *ngIf="loginForm.hasError('required', ['login'])">
                     Please enter a login email
@@ -29,8 +29,13 @@
                     <small> Minimal length of password is {{password?.errors?.['minlength']?.['requiredLength'] }} chars </small> 
                     <small>You entered {{password?.errors?.['minlength']?.['actualLength'] }} char(s)</small>
                 </div>
+                <hr>
                 <div *ngIf="password?.errors?.['isNotStrong']">
                     <small>Your password isn't strong enough!</small>
+                    <small *ngIf="password?.errors?.['isWithoutNumbers']" >Add at least one number: 1,2 ...</small>
+                    <small *ngIf="password?.errors?.['isWithoutUppercase']" >Add at least one UPPERCASE letter: ABC...</small>
+                    <small *ngIf="password?.errors?.['isWithoutLowercase']" >Add at least one lowercase letter: xyz...</small>
+                    <small *ngIf="password?.errors?.['isWithoutSpecials']" >Add at least one special symbol: !@%...</small>
                 </div>
 
             </div>

@@ -33,7 +33,10 @@ export class LoginComponent implements OnInit {
         Validators.required,
         Validators.minLength(8),
         PasswordValidators.isPasswordStrong,
-        // Validators.maxLength(30),
+        PasswordValidators.isPasswordContainsNumbers,
+        PasswordValidators.isPasswordContainsSpecials,
+        PasswordValidators.isPasswordContainsUppercase,
+        PasswordValidators.isPasswordContainsLowercase,
       ]),
     });
   }
