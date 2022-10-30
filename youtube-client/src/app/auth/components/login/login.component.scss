@@ -61,6 +61,15 @@
         display: flex;
         align-items: center;
         color: #000000;
+
+        &.ng-valid {
+            border: 1px solid green;
+        }
+
+        &.ng-invalid.ng-dirty {
+            border: 1px solid #D62828;
+            background-color: #f8ae5e;
+        }
     }
 
     label {
