@@ -63,12 +63,13 @@
         color: #000000;
 
         &.ng-valid {
-            border: 1px solid green;
+            border: 1px solid #71964A;
+            background-color: #B8D09F;
         }
 
         &.ng-invalid.ng-dirty {
             border: 1px solid #D62828;
-            background-color: #f8ae5e;
+            background-color: #FEC29A;
         }
     }
 
@@ -88,7 +89,7 @@
     .submit__btn {
         width: 124px;
         height: 30px;
-        background: #85B9FF;
+        background: #3a8dfa;
         border: none;
         border-radius: 5px;
         font-family: 'Roboto';
