@@ -47,7 +47,7 @@ export class SearchResultsBlockComponent implements OnInit {
 
             // let re2 = this.http.get(`https://youtube.googleapis.com/youtube/v3/videos?id=${ids.join('=')}&maxResults=5&key=AIzaSyBTeKuESi66BKPmR2XC8f6asXINeVSgeYU&&part=statistics`);
             let re2 = this.http.get(
-              `https://youtube-v31.p.rapidapi.com/videos?part=snippet%2Cstatistics&id=${ids.join(',')}`, {
+              `https://youtube-v31.p.rapidapi.com/videos?part=snippet,statistics&id=${ids.join(',')}`, {
                 headers: { 'X-RapidAPI-Key': '0519fa2feamsh1b49deb43e0d50ep186198jsnc1907a46938d' },
               });
 
