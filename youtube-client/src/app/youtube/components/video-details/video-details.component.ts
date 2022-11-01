@@ -28,7 +28,7 @@ export class VideoDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.videoId = this.route.snapshot.params['id'];
     this.videoData = this.dataService.response;
-    this.card = this.videoData.filter( card => card.id === this.videoId)[0];
+    this.card = this.videoData.filter( card => card.id.videoId === this.videoId)[0];
   }
 
 

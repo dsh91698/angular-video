@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { debounceTime, switchMap } from 'rxjs/operators';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { DataService } from '../../services/data.service';
 
@@ -8,7 +10,8 @@ import { DataService } from '../../services/data.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent  {
+export class HeaderComponent implements OnInit {
+
   public isSortingSectionShown = false;
 
   private isSortedByDate = true;
@@ -19,6 +22,12 @@ export class HeaderComponent  {
     private router: Router, 
     public authService: AuthService,
     public dataService: DataService) { }
+
+  ngOnInit(): void {
+    this.dataService.searchInput.valueChanges.pipe(
+      debounceTime(1500),
+    ).subscribe(val => console.log(val));
+  }
 
   public toggleSearchSection() {
     this.isSortingSectionShown = !this.isSortingSectionShown;
