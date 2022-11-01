@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { debounceTime } from 'rxjs/operators';
 import { DataService } from 'src/app/core/services/data.service';
 import { IYouTubeResponse } from 'src/app/models/you-tube-response';
-import { IRapidApiResponceWithStatistics, IYouTubeItem } from '../../../models/IYouTubeItem';
+import { IYouTubeItem } from '../../../models/IYouTubeItem';
+import { IRapidApiResponceWithStatistics } from '../../../models/IRapidApiResponceWithStatistics';
 
 @Component({
   selector: 'app-search-results-block',
