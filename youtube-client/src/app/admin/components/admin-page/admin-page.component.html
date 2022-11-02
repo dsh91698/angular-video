@@ -1,1 +1,99 @@
-<p>admin-page works!</p>
+<!-- <p>admin-page works!</p> -->
+
+<div class="form__wrapper">
+    <h2>Create new card</h2>
+    <form class="card-add-form" [formGroup]="adminForm" (ngSubmit)="submitForm()">
+
+        <div class="element__wrapper">
+            <label for="title">title:</label>
+            <input type="text" id="title" name="title" formControlName="title">
+
+            <div class="validation" *ngIf="adminForm.get('title')?.invalid && adminForm.get('title')?.touched">
+                <small *ngIf="adminForm.hasError('required', ['title'])">
+                    Please enter a title
+                </small>
+                <small *ngIf="adminForm.hasError('minlength', ['title'])">
+                    The title is too short
+                </small>
+                <small *ngIf="adminForm.hasError('maxlength', ['title'])">
+                    The title is too long
+                </small>
+            </div>
+        </div>
+
+        <div class="element__wrapper">
+            <label for="description">Description:</label>
+            <input id="description" name="description" type="text" formControlName="description">
+            <div class="validation"
+                *ngIf="adminForm.get('description')?.invalid && (adminForm.get('description')?.touched || adminForm.get('description')?.dirty )">
+                <small *ngIf="adminForm.hasError('maxlength', ['description'])">
+                    The description is too long
+                </small>
+            </div>
+        </div>
+
+
+        <div class="element__wrapper">
+            <label for="imgCover">Cover image link:</label>
+            <input type="text" id="imgCover" name="imgCover" formControlName="imgCover">
+
+            <div class="validation" *ngIf="adminForm.get('imgCover')?.invalid && adminForm.get('imgCover')?.touched">
+                <small *ngIf="adminForm.hasError('required', ['imgCover'])">
+                    Please enter a link to the cover image
+                </small>
+            </div>
+
+            <div class="validation" *ngIf="adminForm.get('videoLink')?.invalid && adminForm.get('videoLink')?.dirty">
+                <small *ngIf="adminForm.hasError('isNotCorrectUrl', ['imgCover'])">
+                    The image link is invalid
+                </small>
+            </div>
+        </div>
+
+        <div class="element__wrapper">
+            <label for="videoLink">Video link:</label>
+            <input type="text" id="videoLink" name="videoLink" formControlName="videoLink">
+
+            <div class="validation" *ngIf="adminForm.get('videoLink')?.invalid && adminForm.get('videoLink')?.touched">
+                <small *ngIf="adminForm.hasError('required', ['videoLink'])">
+                    Please enter a link to the video
+                </small>
+            </div>
+
+            <div class="validation" *ngIf="adminForm.get('videoLink')?.invalid && adminForm.get('videoLink')?.dirty">
+                <small *ngIf="adminForm.hasError('isNotCorrectUrl', ['videoLink'])">
+                    The video link is invalid
+                </small>
+            </div>
+
+        </div>
+
+        <div class="element__wrapper">
+            <label for="creationDate">Creation date:</label>
+            <input type="text" id="creationDate" name="creationDate" formControlName="creationDate">
+
+            <div class="validation" *ngIf="adminForm.get('creationDate')?.invalid && adminForm.get('creationDate')?.touched">
+                <small *ngIf="adminForm.hasError('required', ['creationDate'])">
+                    Please enter a video creation date
+                </small>
+            </div>
+
+            <div class="validation" *ngIf="adminForm.get('creationDate')?.invalid && adminForm.get('creationDate')?.dirty">
+                <small *ngIf="adminForm.hasError('isNotCorrectDate', ['creationDate'])">
+                    The date is invalid
+                </small>
+                <small *ngIf="adminForm.hasError('isDateInFuture', ['creationDate'])">
+                    The date is in future
+                </small>
+            </div>
+
+        </div>
+
+
+
+
+
+
+        <button class="submit__btn" type="submit" [disabled]="adminForm.invalid">Create card</button>
+    </form>
+</div>
