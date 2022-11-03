@@ -87,6 +87,11 @@
             border: 1px solid #D62828;
             background-color: #FEC29A;
         }
+
+        &:disabled {
+            pointer-events: none;
+        }
+
     }
 
     label {
