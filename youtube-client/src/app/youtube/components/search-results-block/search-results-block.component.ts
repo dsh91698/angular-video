@@ -33,18 +33,14 @@ export class SearchResultsBlockComponent implements OnInit {
       searchPhrase => {
         console.log('res->', searchPhrase);
         let re = this.http.get(
-          `https://youtube-v31.p.rapidapi.com/search?&type=video&part=snippet&maxResults=5&q=${searchPhrase}`, {
-            headers: { 'X-RapidAPI-Key': '0519fa2feamsh1b49deb43e0d50ep186198jsnc1907a46938d' },
-          });
+          `https://youtube-v31.p.rapidapi.com/search?&type=video&part=snippet&maxResults=5&q=${searchPhrase}`);
 
         re.subscribe(
           r => {
             let ids: string[] = (r as IYouTubeResponse).items.map(el => el.id.videoId); // videoId's array
 
             let re2 = this.http.get(
-              `https://youtube-v31.p.rapidapi.com/videos?part=snippet,statistics&id=${ids.join(',')}`, {
-                headers: { 'X-RapidAPI-Key': '0519fa2feamsh1b49deb43e0d50ep186198jsnc1907a46938d' },
-              });
+              `https://youtube-v31.p.rapidapi.com/videos?part=snippet,statistics&id=${ids.join(',')}`);
 
             re2.subscribe(
               re22 => {
