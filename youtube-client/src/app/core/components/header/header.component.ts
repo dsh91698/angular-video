@@ -19,14 +19,12 @@ export class HeaderComponent implements OnInit {
   private isSortedByViews = false;
 
   constructor(
-    private router: Router, 
+    private router: Router,
     public authService: AuthService,
     public dataService: DataService) { }
 
+  // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
   ngOnInit(): void {
-    this.dataService.searchInput.valueChanges.pipe(
-      debounceTime(1500),
-    ).subscribe(val => console.log(val));
   }
 
   public toggleSearchSection() {
@@ -55,7 +53,7 @@ export class HeaderComponent implements OnInit {
       this.dataService.sortType = 'dateAsc';
       return;
     }
-  
+
     if (sortType === 'views' && !this.isSortedByViews) {
       this.isSortedByViews = true;
       this.dataService.sortType = 'viewsAsc';

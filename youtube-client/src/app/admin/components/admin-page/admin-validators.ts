@@ -23,13 +23,11 @@ export class AdminPageValidators {
 
     // correct date check
     let isDateValid = new Date(createDate.value);
-    console.log('isValid date url ->', isDateValid);
-    console.log('createDate value ----->', createDate.value);
     if (isDateValid.toString() === 'Invalid Date') {
       return { isNotCorrectDate: true };
     }
     return null;
   }
-    
+
 }
 

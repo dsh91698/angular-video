@@ -15,7 +15,7 @@ export class AdminPageComponent implements OnInit {
   public inputDate: Date = new Date();
 
 
-  constructor() { 
+  constructor() {
     this.adminForm = new FormGroup({
     });
 
@@ -57,4 +57,4 @@ export class AdminPageComponent implements OnInit {
   }
 
 
-} 
+}
