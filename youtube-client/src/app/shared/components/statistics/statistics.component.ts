@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { IVideoStatistics } from 'src/app/models/IVideoStatistics';
 
 @Component({
   selector: 'app-statistics',
@@ -6,6 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./statistics.component.scss']
 })
 export class StatisticsComponent implements OnInit {
+
+  @Input() public statistica: IVideoStatistics = {
+    viewCount: '',
+    likeCount: '',
+    dislikeCount: '',
+    favoriteCount: '',
+    commentCount: '',
+  };
 
   constructor() { }
 

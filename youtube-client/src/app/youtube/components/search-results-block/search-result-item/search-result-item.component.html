@@ -1,25 +1,7 @@
     <div class="video-card" appTimeStyle [publishedAt]="vcard.snippet.publishedAt">
         <img src="{{vcard.snippet.thumbnails.default.url}}" alt="thumbnail" class="video-card__img">
 
-        <div class="video-card__statistics">
-
-            <div class="stat-item">
-                <img src="../../assets/icons/viewed.svg" alt="views" class="stat-item__img">
-                <div class="stat-item__counter">{{vcard.statistics.viewCount || 0}}</div>
-            </div>
-            <div class="stat-item">
-                <img src="../../assets/icons/liked.svg" alt="likes" class="stat-item__img">
-                <div class="stat-item__counter">{{vcard.statistics.likeCount || 0}}</div>
-            </div>
-            <div class="stat-item">
-                <img src="../../assets/icons/dislike.svg" alt="dislikes" class="stat-item__img">
-                <div class="stat-item__counter">{{vcard.statistics.dislikeCount || 0}}</div>
-            </div>
-            <div class="stat-item">
-                <img src="../../assets/icons/comments.svg" alt="comments" class="stat-item__img">
-                <div class="stat-item__counter">{{vcard.statistics.commentCount || 0}}</div>
-            </div>
-        </div>
+        <app-statistics [statistica]="vcard.statistics"></app-statistics>
 
         <div class="video-card__title">{{vcard.snippet.title}}</div>
         <button class="video-card__btn" routerLink='{{vcard.id.videoId}}'>more...</button>
