@@ -7,19 +7,18 @@ import { IYouTubeItem } from '../../models/IYouTubeItem';
 export class FilterPipe implements PipeTransform {
 
   transform(
-    cards:IYouTubeItem[], 
-    textInput: string, 
+    cards:IYouTubeItem[],
+    textInput: string,
   ): IYouTubeItem[] {
     let cardsArray = cards;
-      
+
     if (!textInput.trim()) { return cardsArray; }
-    cardsArray = cards.filter(a => 
-      a.snippet.description.toLowerCase().includes(textInput.toLowerCase()) 
-        || a.snippet.tags.includes(textInput.toLowerCase()));
-  
+    cardsArray = cards.filter(a =>
+      a.snippet.description.toLowerCase().includes(textInput.toLowerCase())
+        // || a.snippet.tags.includes(textInput.toLowerCase())
+        );
     return  cardsArray; // final
-  
+
   }
-  
+
 }
-  
