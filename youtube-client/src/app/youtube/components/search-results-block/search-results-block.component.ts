@@ -31,7 +31,7 @@ export class SearchResultsBlockComponent implements OnInit {
     ).subscribe(
 
       searchPhrase => {
-        console.log('res->', searchPhrase);
+
         let re = this.http.get(
           `https://youtube-v31.p.rapidapi.com/search?&type=video&part=snippet&maxResults=5&q=${searchPhrase}`);
 
