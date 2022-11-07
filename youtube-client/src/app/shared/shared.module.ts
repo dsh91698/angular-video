@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { TimeStyleDirective } from './directives/time-style.directive';
 import { FilterPipe } from './pipes/filter.pipe';
 import { SortPipePipe } from './pipes/sort-pipe.pipe';
+import { StatisticsComponent } from './components/statistics/statistics.component';
 
 
 @NgModule({
@@ -10,6 +11,7 @@ import { SortPipePipe } from './pipes/sort-pipe.pipe';
     TimeStyleDirective,
     FilterPipe,
     SortPipePipe,
+    StatisticsComponent,
   ],
   imports: [
     CommonModule,
@@ -19,6 +21,7 @@ import { SortPipePipe } from './pipes/sort-pipe.pipe';
     TimeStyleDirective,
     FilterPipe,
     SortPipePipe,
+    StatisticsComponent,
   ],
 })
 export class SharedModule { }
