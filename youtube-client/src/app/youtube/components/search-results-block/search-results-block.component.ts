@@ -12,59 +12,45 @@ import { IRapidApiResponceWithStatistics } from '../../../models/IRapidApiRespon
   styleUrls: ['./search-results-block.component.scss'],
 })
 export class SearchResultsBlockComponent implements OnInit {
-
-  public response:IYouTubeItem[] = this.dataService.response;
+  public response: IYouTubeItem[] = this.dataService.response;
 
   public _filterValue = this.filterValue;
 
-  public _sortType: 'dateAsc' | 'viewsAsc' | 'dateDes' | 'viewsDes' = this.sortType;
+  public _sortType: 'dateAsc' | 'viewsAsc' | 'dateDes' | 'viewsDes' =
+    this.sortType;
 
-  constructor(
-    public dataService: DataService,
-    private http: HttpClient,
-  ) {
-  }
+  constructor(public dataService: DataService, private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.dataService.searchInput.valueChanges.pipe(
-      debounceTime(1500),
-    ).subscribe(
+    this.dataService.searchInput.valueChanges
+      .pipe(debounceTime(1500))
+      .subscribe((searchPhrase) => {
+        this.dataService
+          .getBySearchPhrase(searchPhrase)
+          .subscribe(youTubeResponse => {
 
-      searchPhrase => {
+            let ids: string[] = youTubeResponse.items.map(video => video.id.videoId); // videoId's array
 
-        let re = this.http.get(
-          `https://youtube-v31.p.rapidapi.com/search?&type=video&part=snippet&maxResults=5&q=${searchPhrase}`);
+            this.dataService
+              .getByIdsArray(ids)
+              .subscribe((youTubeResponseWithStatistics) => {
+                let youTubeItemsArray = youTubeResponse.items.map(
+                  videoItem => {
+                    const match = youTubeResponseWithStatistics.items.find((element: { id: string; }) => element.id === videoItem.id.videoId);
+                    if (match) {
+                      return { ...match, ...videoItem };
+                    } else {
+                      return;
+                    }
+                  },
+                );
 
-        re.subscribe(
-          r => {
-            let ids: string[] = (r as IYouTubeResponse).items.map(el => el.id.videoId); // videoId's array
-
-            let re2 = this.http.get(
-              `https://youtube-v31.p.rapidapi.com/videos?part=snippet,statistics&id=${ids.join(',')}`);
-
-            re2.subscribe(
-              re22 => {
-                let resp = (r as IYouTubeResponse).items.map(rel => {
-                  const match = (re22 as IRapidApiResponceWithStatistics).items.find(element => element.id === rel.id.videoId);
-                  if (match) {
-                    return { ...match, ...rel };
-                  } else { return; }
-                });
-
-                this.dataService.response = (resp as IYouTubeItem[]);
-                this.response = (resp as IYouTubeItem[]);
-              },
-
-            );
-          },
-        );
-
-      },
-
-    );
-  }
-
-
+                this.dataService.response = youTubeItemsArray as IYouTubeItem[];
+                this.response = youTubeItemsArray as IYouTubeItem[];
+              });
+          });
+      });
+  } //onInit
 
   //methods
   public get filterValue() {
@@ -74,5 +60,4 @@ export class SearchResultsBlockComponent implements OnInit {
   public get sortType() {
     return this.dataService.sortType;
   }
-
 }
