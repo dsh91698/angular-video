@@ -1,10 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { debounceTime } from 'rxjs/operators';
+import { debounceTime, map, switchMap } from 'rxjs/operators';
 import { DataService } from 'src/app/core/services/data.service';
-import { IYouTubeResponse } from 'src/app/models/you-tube-response';
 import { IYouTubeItem } from '../../../models/IYouTubeItem';
-import { IRapidApiResponceWithStatistics } from '../../../models/IRapidApiResponceWithStatistics';
+import { IVideoId, IVideoIdString } from 'src/app/models/IVideoId';
 
 @Component({
   selector: 'app-search-results-block',
@@ -26,33 +25,35 @@ export class SearchResultsBlockComponent implements OnInit {
   ngOnInit(): void {
     this.dataService.searchInput.valueChanges
       .pipe(debounceTime(1500))
-      .subscribe((searchPhrase) => {
-        this.dataService
-          .getBySearchPhrase(searchPhrase)
-          .subscribe(youTubeResponse => {
+      .pipe(
+        switchMap(searchPhrase => this.dataService.getBySearchPhrase(searchPhrase)),
+        switchMap(youTubeResponse => this.dataService.getByIdsArray(youTubeResponse.items.map((video: IVideoId) => video.id.videoId))
+          .pipe(map( youTubeResponseWithStat => [youTubeResponse, youTubeResponseWithStat]))))
 
-            let ids: string[] = youTubeResponse.items.map(video => video.id.videoId); // videoId's array
+      .subscribe((youTubeResponse: any) => {
+        let youTubeItemsArray = youTubeResponse[0].items.map(
+          (videoItem: IVideoId) => {
+            const match = youTubeResponse[1].items.find((element: IVideoIdString) => element.id === videoItem.id.videoId);
+            if (match) {
+              return { ...match, ...videoItem };
+            } else {
+              return;
+            }
+          },
+        );
 
-            this.dataService
-              .getByIdsArray(ids)
-              .subscribe((youTubeResponseWithStatistics) => {
-                let youTubeItemsArray = youTubeResponse.items.map(
-                  videoItem => {
-                    const match = youTubeResponseWithStatistics.items.find((element: { id: string; }) => element.id === videoItem.id.videoId);
-                    if (match) {
-                      return { ...match, ...videoItem };
-                    } else {
-                      return;
-                    }
-                  },
-                );
+        this.dataService.response = youTubeItemsArray as IYouTubeItem[];
+        this.response = youTubeItemsArray as IYouTubeItem[];
 
-                this.dataService.response = youTubeItemsArray as IYouTubeItem[];
-                this.response = youTubeItemsArray as IYouTubeItem[];
-              });
-          });
       });
-  } //onInit
+  }
+
+
+
+
+
+
+
 
   //methods
   public get filterValue() {
@@ -63,3 +64,4 @@ export class SearchResultsBlockComponent implements OnInit {
     return this.dataService.sortType;
   }
 }
+
