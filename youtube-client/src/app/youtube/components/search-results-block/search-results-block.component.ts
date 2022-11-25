@@ -19,7 +19,9 @@ export class SearchResultsBlockComponent implements OnInit {
   public _sortType: 'dateAsc' | 'viewsAsc' | 'dateDes' | 'viewsDes' =
     this.sortType;
 
-  constructor(public dataService: DataService, private http: HttpClient) {}
+  constructor(
+    public dataService: DataService,
+    private http: HttpClient) {}
 
   ngOnInit(): void {
     this.dataService.searchInput.valueChanges
