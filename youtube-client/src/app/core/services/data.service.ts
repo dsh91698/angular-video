@@ -5,6 +5,8 @@ import { mockResponse } from '../../response';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IYouTubeResponse } from 'src/app/models/you-tube-response';
+import { IVideoStatistics } from 'src/app/models/IVideoStatistics';
+import { IRapidApiResponceWithStatistics } from 'src/app/models/IRapidApiResponceWithStatistics';
 
 
 
@@ -36,9 +38,9 @@ export class DataService {
     // `https://youtube-v31.p.rapidapi.com/search?&type=video&part=snippet&maxResults=5&q=${searchPhrase}`) as Observable<IYouTubeResponse>);
   }
 
-  getByIdsArray(ids: string[]): Observable<any> {
+  getByIdsArray(ids: string[]): Observable<IRapidApiResponceWithStatistics> { // any
     return this.http.get(
-      `videos?part=snippet,statistics&id=${ids.join(',')}`) as Observable<IYouTubeResponse>;
+      `videos?part=statistics&id=${ids.join(',')}`) as Observable< IRapidApiResponceWithStatistics >;
     // `https://youtube-v31.p.rapidapi.com/videos?part=snippet,statistics&id=${ids.join(',')}`) as Observable<IYouTubeResponse>;
   }
 
