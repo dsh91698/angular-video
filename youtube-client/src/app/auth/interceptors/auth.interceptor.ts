@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import {
   HttpRequest,
   HttpHandler,
@@ -16,12 +16,17 @@ export class AuthInterceptor implements HttpInterceptor {
 
 
   // eslint-disable-next-line @typescript-eslint/no-useless-constructor
-  constructor() {}
+  constructor(
+    @Inject('BASE_API_URL') private baseUrl: string,
+  ) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
     const headers: HttpHeaders = new HttpHeaders({ 'X-RapidAPI-Key': this.apiKey });
-    const authReq = request.clone( { headers } );
+    const authReq = request.clone(
+      { url: `${this.baseUrl}/${request.url}`,
+        headers },
+    );
 
     return next.handle(authReq);
   }

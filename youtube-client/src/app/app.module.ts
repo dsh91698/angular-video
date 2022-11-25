@@ -9,6 +9,7 @@ import { SharedModule } from './shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth/interceptors/auth.interceptor';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,10 @@ import { AuthInterceptor } from './auth/interceptors/auth.interceptor';
     SharedModule,
   ],
   providers: [
+    {
+      provide: 'BASE_API_URL',
+      useValue: environment.apiUrl,
+    },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

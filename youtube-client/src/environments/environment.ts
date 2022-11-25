@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  apiUrl: 'https://youtube-v31.p.rapidapi.com',
 };
 
 /*
